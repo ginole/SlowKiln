@@ -3,9 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SlowKiln — 游戏试玩</title>
-<meta name="description" content="SlowKiln 工作室的网页游戏试玩：变异幸存者、Nine Heavens Sect。打开即玩，无需下载安装。">
+<title>SlowKiln — 游戏作品</title>
+<meta name="description" content="SlowKiln 独立游戏工作室的网页游戏，打开即玩，无需下载安装。">
 <meta name="theme-color" content="#0c0e0d">
+<meta property="og:title" content="SlowKiln — 游戏作品">
+<meta property="og:description" content="用 Godot 做的网页游戏，点开就能玩，不用下载安装。">
+<meta property="og:image" content="https://ginole.github.io/SlowKiln/img/survivor-cover.png">
+<meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#127978;</text></svg>">
 <style>
 :root{
@@ -24,24 +28,21 @@ body{
 }
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 
-/* header */
-header{text-align:center;padding:56px 0 34px}
-.mark{display:inline-flex;align-items:center;gap:11px;font-size:13px;letter-spacing:.34em;
+header{text-align:center;padding:56px 0 32px}
+.mark{display:inline-flex;align-items:center;gap:11px;font-size:12.5px;letter-spacing:.3em;
   text-transform:uppercase;color:var(--ember);font-weight:600}
-.mark::before,.mark::after{content:'';width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--ember))}
+.mark::before,.mark::after{content:'';width:32px;height:1px;background:linear-gradient(90deg,transparent,var(--ember))}
 .mark::after{background:linear-gradient(90deg,var(--ember),transparent)}
-h1{font-size:clamp(28px,6.4vw,42px);font-weight:700;letter-spacing:.01em;margin-top:14px}
+h1{font-size:clamp(28px,6.4vw,42px);font-weight:700;margin-top:14px}
 .sub{color:var(--dim);margin-top:10px;font-size:15px}
 
-/* notice */
 .notice{display:flex;gap:12px;align-items:flex-start;background:var(--panel);
   border:1px solid var(--line);border-left:3px solid var(--ember);
-  border-radius:8px;padding:14px 16px;margin:6px 0 34px;font-size:13.5px;color:var(--dim)}
+  border-radius:8px;padding:14px 16px;margin:4px 0 32px;font-size:13.5px;color:var(--dim)}
 .notice b{color:var(--ink);font-weight:600}
 .notice .ic{font-size:16px;line-height:1.4}
 
-/* grid */
-.grid{display:grid;gap:24px;padding-bottom:20px}
+.grid{display:grid;gap:24px}
 @media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
 
 .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;
@@ -50,35 +51,17 @@ h1{font-size:clamp(28px,6.4vw,42px);font-weight:700;letter-spacing:.01em;margin-
 .card:hover{transform:translateY(-4px);border-color:rgba(224,145,60,.5);
   box-shadow:0 18px 44px rgba(0,0,0,.5)}
 
-.cover{position:relative;aspect-ratio:63/50;overflow:hidden;background:#0a0c0b}
-.cover img{width:100%;height:100%;object-fit:cover;display:block}
-.cover::after{content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 58%,rgba(12,14,13,.92) 100%)}
-
-/* CSS 封面：变异幸存者（暂无正式美术，用配色示意） */
-.cover-survivor{background:
-  radial-gradient(circle at 50% 46%,rgba(150,190,90,.20),transparent 42%),
-  repeating-linear-gradient(0deg,rgba(255,255,255,.028) 0 1px,transparent 1px 26px),
-  repeating-linear-gradient(90deg,rgba(255,255,255,.028) 0 1px,transparent 1px 26px),
-  linear-gradient(165deg,#5c6247 0%,#3f4535 55%,#272c20 100%)}
-.cover-survivor .ring{position:absolute;left:50%;top:46%;width:120px;height:120px;
-  transform:translate(-50%,-50%);border:1.5px dashed rgba(232,230,223,.42);border-radius:50%}
-.cover-survivor .dot{position:absolute;left:50%;top:46%;width:15px;height:19px;
-  transform:translate(-50%,-50%);background:#c8562f;
-  box-shadow:0 -7px 0 #23180f,0 0 0 2px rgba(0,0,0,.35)}
-.cover-survivor .pip{position:absolute;width:9px;height:9px;background:#8e2f2f;
-  border-radius:50%;box-shadow:0 0 0 2px rgba(0,0,0,.3)}
-.cover-survivor .pip:nth-child(3){left:20%;top:26%}
-.cover-survivor .pip:nth-child(4){left:76%;top:34%}
-.cover-survivor .pip:nth-child(5){left:30%;top:72%}
-.cover-survivor .pip:nth-child(6){left:68%;top:76%}
-.cover-survivor .pip:nth-child(7){left:52%;top:17%}
-.cover-title{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:18px 20px;
-  font-size:clamp(20px,4.6vw,26px);font-weight:700;letter-spacing:.02em;
-  text-shadow:0 2px 14px rgba(0,0,0,.85)}
+/* 封面：模糊铺底 + 完整显示原图，不裁切 */
+.cover{position:relative;aspect-ratio:4/3;overflow:hidden;background:#090b0a}
+.cover::before{content:'';position:absolute;inset:-12%;background-image:var(--art);
+  background-size:cover;background-position:center;filter:blur(26px) brightness(.45) saturate(1.1)}
+.cover img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;display:block}
 
 .body{padding:20px;display:flex;flex-direction:column;flex:1}
-.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+h2{font-size:20px;font-weight:700;letter-spacing:.01em}
+h2 .en{display:block;font-size:11.5px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--dim);margin-top:3px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
 .tag{font-size:11px;letter-spacing:.08em;padding:4px 10px;border-radius:20px;
   border:1px solid var(--line);color:var(--dim);background:rgba(255,255,255,.02)}
 .tag.hot{border-color:rgba(224,145,60,.45);color:var(--ember-lit);background:rgba(224,145,60,.08)}
@@ -93,8 +76,8 @@ h1{font-size:clamp(28px,6.4vw,42px);font-weight:700;letter-spacing:.01em;margin-
 .btn:hover{filter:brightness(1.1)}
 .btn:active{transform:scale(.98)}
 
-footer{text-align:center;padding:38px 20px 52px;color:var(--dim);font-size:12.5px;line-height:1.9}
-footer a{color:var(--ember);text-decoration:none}
+.more{text-align:center;color:var(--dim);font-size:13px;padding:30px 20px 0;opacity:.75}
+footer{text-align:center;padding:30px 20px 52px;color:var(--dim);font-size:12.5px;line-height:1.9}
 @media(prefers-reduced-motion:reduce){.card{transition:none}}
 </style>
 </head>
@@ -103,29 +86,27 @@ footer a{color:var(--ember);text-decoration:none}
 
 <header>
   <div class="mark">SlowKiln</div>
-  <h1>游戏试玩</h1>
-  <p class="sub">两款用 Godot 做的网页游戏 · 点开就能玩，不用下载安装</p>
+  <h1>游戏作品</h1>
+  <p class="sub">用 Godot 做的网页游戏 · 点开就能玩，不用下载安装</p>
 </header>
 
 <div class="notice">
   <span class="ic">💡</span>
   <span>
-    首次打开每款游戏需要加载 <b>约 20MB</b>，网速慢的话请等十几秒，黑屏是正常的。<br>
-    建议用 <b>Chrome / Edge</b> 浏览器，电脑上体验最好。游戏内有背景音乐，注意音量。<br>
-    两款游戏的<b>界面文字都是英文</b>（原本是给海外平台做的）。
+    首次打开需要加载 <b>约 20MB</b>，网速慢的话请等十几秒，黑屏是正常的。<br>
+    建议用 <b>Chrome / Edge</b>，电脑上体验最好。游戏内有背景音乐，注意音量。<br>
+    游戏界面文字目前<b>都是英文</b>（原本是给海外平台做的）。
   </span>
 </div>
 
 <main class="grid">
 
   <article class="card">
-    <div class="cover cover-survivor">
-      <div class="ring"></div>
-      <div class="dot"></div>
-      <i class="pip"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i>
-      <div class="cover-title">变异幸存者</div>
+    <div class="cover" style="--art:url('img/survivor-cover.png')">
+      <img src="img/survivor-cover.png" alt="变异幸存者 封面" width="1024" height="1024">
     </div>
     <div class="body">
+      <h2>变异幸存者<span class="en">Mutant Survivor</span></h2>
       <div class="tags">
         <span class="tag hot">最新</span>
         <span class="tag">幸存者类 / 割草</span>
@@ -134,7 +115,7 @@ footer a{color:var(--ember);text-decoration:none}
       <p class="desc">
         站在怪堆里自动开火，活过一波又一波。每波结束挑一件强化，
         慢慢把自己滚成一台绞肉机 —— 玩法接近《土豆兄弟》。
-        目前是原型阶段，重点是打击手感和数值。
+        目前是原型阶段，重点打磨手感和数值。
       </p>
       <div class="meta">
         <span><b>操作</b>WASD / 方向键移动，自动攻击</span>
@@ -145,11 +126,11 @@ footer a{color:var(--ember);text-decoration:none}
   </article>
 
   <article class="card">
-    <div class="cover">
+    <div class="cover" style="--art:url('img/sect-cover.png')">
       <img src="img/sect-cover.png" alt="Nine Heavens Sect 封面" width="630" height="500">
-      <div class="cover-title">Nine Heavens Sect</div>
     </div>
     <div class="body">
+      <h2>九天宗<span class="en">Nine Heavens Sect</span></h2>
       <div class="tags">
         <span class="tag">放置 / 挂机</span>
         <span class="tag">修仙经营</span>
@@ -170,9 +151,11 @@ footer a{color:var(--ember);text-decoration:none}
 
 </main>
 
+<p class="more">更多作品陆续加入</p>
+
 <footer>
   SlowKiln 独立游戏工作室 · 用 Godot 4 制作<br>
-  仅供试玩，进度保存在你自己的浏览器里，换设备不同步。
+  进度保存在你自己的浏览器里，换设备不同步。
 </footer>
 
 </div>
