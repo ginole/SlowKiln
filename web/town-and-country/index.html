@@ -133,6 +133,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .callbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--slabBg) 92%,transparent);backdrop-filter:blur(10px);border-top:1px solid color-mix(in srgb,var(--slabInk) 16%,transparent)}
 .callbar a{flex:1;text-align:center}
 @media(min-width:720px){.callbar{display:none}}
+/* On phones the sticky bottom call bar already carries the number, so the nav button is
+   redundant — and with it gone the brand name has the whole row and stops wrapping into it. */
+@media(max-width:719px){
+  nav .btn{display:none}
+  nav{padding:10px 18px}
+  .brand{min-width:0}
+  .brand b{font-size:15.5px}
+  .brand i{font-size:10px;letter-spacing:.12em}
+  .brand.has-logo img,.brand.has-mark img{height:34px}
+}
 
 /* hidden states live in CSS, only under .js — GSAP's single job is to reveal (Veracod rule #1) */
 .js .rv,.js .hr-in{opacity:0;visibility:hidden}
