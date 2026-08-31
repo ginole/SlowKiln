@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Power Megamix Batching Inc. — Ready-mix concrete, Cavite</title>
+<meta name="description" content="Ready-mix concrete supply and concrete pumping from batching plants in Kawit, Cavite. Supplying contractors across Cavite and Metro Manila since 2017.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Power Megamix Batching Inc.
+   Register: heavy industry, not corporate template. Dark ground, one hot accent,
+   large numerals, monospace for anything technical. Reference points are equipment
+   makers (Caterpillar, Liebherr) rather than contractor websites — which around here
+   are uniformly white template pages, so this also simply looks unlike them.
+   ============================================================ */
+:root{
+  --ink:#0b0f14;            /* near-black, cool cast, like wet concrete */
+  --ink-2:#111820;
+  --ink-3:#1a232e;
+  --line:#243040;
+  --paper:#f2f5f8;
+  --paper-dim:rgba(242,245,248,.72);
+  --paper-faint:rgba(242,245,248,.48);
+  --blue:#2b8ae0;           /* sampled from their own gate signage */
+  --amber:#e8b33c;          /* from the P mark — reserved for the open-question blocks */
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.03em;font-weight:700}
+h2{font-size:clamp(26px,3.8vw,44px)}
+h3{font-size:19px;letter-spacing:-.015em}
+p{margin:0}
+.lead{color:var(--paper-dim);font-size:clamp(15px,1.5vw,18px);max-width:60ch;margin-top:16px}
+
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:10px}
+.eyebrow::after{content:"";height:1px;flex:1;max-width:70px;background:var(--line)}
+
+/* ---------- scroll reveal ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* ---------- header ---------- */
+header{position:fixed;inset:0 0 auto;z-index:60;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+header.stuck{background:rgba(11,15,20,.94);border-bottom-color:var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 22px;max-width:1180px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand img{width:40px;height:40px;border-radius:7px;flex:none}
+.brand b{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em;line-height:1.15}
+.brand i{display:block;font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-faint);margin-top:2px}
+.navlinks{display:none;gap:30px}
+.navlinks a{font-size:14px;color:var(--paper-dim);transition:color .2s}
+.navlinks a:hover{color:var(--paper)}
+.cta{background:var(--blue);color:#fff;font-size:14px;font-weight:600;padding:10px 18px;border-radius:4px;white-space:nowrap;transition:background .2s,transform .15s}
+.cta:hover{background:#3f9bee}
+.cta:active{transform:scale(.97)}
+@media(min-width:940px){.navlinks{display:flex}}
+@media(max-width:620px){.brand i{display:none}.brand b{font-size:13px}.brand img{width:34px;height:34px}.cta{font-size:13px;padding:9px 13px}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:clamp(560px,88vh,860px);display:flex;align-items:flex-end;overflow:hidden}
+.hero-img{position:absolute;inset:0}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 42%;
+  /* Pushed cool and dark so white type sits on it cleanly and it reads as part of the page
+     rather than a stock photo dropped on top of it. */
+  filter:grayscale(.35) contrast(1.08) brightness(.62) saturate(1.15);
+  transform:scale(1.06);animation:drift 26s var(--ease) infinite alternate}
+@keyframes drift{from{transform:scale(1.06) translate3d(0,0,0)}to{transform:scale(1.14) translate3d(-1.5%,-1%,0)}}
+@media(prefers-reduced-motion:reduce){.hero-img img{animation:none}}
+.hero-img::after{content:"";position:absolute;inset:0;
+  /* Two scrims, not one. The vertical pass sets the overall darkness; the horizontal pass
+     exists because the gate itself is white and the type column sits right on top of it. */
+  background:
+    linear-gradient(90deg,rgba(11,15,20,.72) 0%,rgba(11,15,20,.42) 42%,rgba(11,15,20,0) 78%),
+    linear-gradient(180deg,rgba(11,15,20,.82) 0%,rgba(11,15,20,.32) 38%,rgba(11,15,20,.92) 100%)}
+/* Faint blueprint grid over the photo — engineering register, and it ties photo to page. */
+.grid-overlay{position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(43,138,224,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(43,138,224,.16) 1px,transparent 1px);
+  background-size:78px 78px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 30% 60%,#000 10%,transparent 78%);
+  mask-image:radial-gradient(ellipse 70% 60% at 30% 60%,#000 10%,transparent 78%)}
+.hero .wrap{position:relative;z-index:2;padding-top:130px;padding-bottom:56px}
+.hero h1{font-size:clamp(36px,6.4vw,80px);max-width:15ch;letter-spacing:-.04em}
+.hero .lead{max-width:52ch}
+.hero .btns{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;font-weight:600;font-size:15px;padding:14px 26px;border-radius:4px;transition:transform .15s,background .2s,border-color .2s}
+.btn:active{transform:scale(.97)}
+.btn-p{background:var(--blue);color:#fff}
+.btn-p:hover{background:#3f9bee}
+.btn-g{border:1px solid rgba(242,245,248,.32);color:#fff}
+.btn-g:hover{border-color:rgba(242,245,248,.7)}
+
+/* ---------- stats ---------- */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink-2)}
+.stats .inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr)}
+.stat{padding:26px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat:nth-child(2n){border-right:none}
+.stat b{display:block;font-size:clamp(30px,4.6vw,46px);font-weight:700;letter-spacing:-.035em;line-height:1;color:#fff}
+.stat b small{font-size:.44em;font-weight:600;letter-spacing:-.01em;color:var(--paper-dim);display:block;margin-top:7px;line-height:1.3}
+.stat span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-top:12px}
+@media(min-width:820px){
+  .stats .inner{grid-template-columns:repeat(4,1fr)}
+  .stat{border-bottom:none}
+  .stat:nth-child(2n){border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+}
+
+section{padding:78px 0}
+@media(min-width:820px){section{padding:110px 0}}
+.band{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* ---------- service rows ---------- */
+.rows{margin-top:44px;border-top:1px solid var(--line)}
+.row{display:grid;gap:6px 30px;padding:26px 0;border-bottom:1px solid var(--line);align-items:start;transition:background .25s}
+.row:hover{background:rgba(43,138,224,.045)}
+.row .n{font-family:var(--mono);font-size:12px;color:var(--blue);letter-spacing:.1em}
+.row p{color:var(--paper-dim);font-size:15.5px}
+@media(min-width:760px){.row{grid-template-columns:64px 300px 1fr}}
+
+/* ---------- split ---------- */
+.split{display:grid;gap:34px;align-items:center;margin-top:44px}
+@media(min-width:900px){.split{grid-template-columns:1fr 1fr;gap:60px}}
+.shot{position:relative;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--ink-3)}
+.shot img{width:100%;filter:grayscale(.28) contrast(1.06) brightness(.9)}
+.shot figcaption{position:absolute;left:0;bottom:0;right:0;padding:14px 16px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dim);background:linear-gradient(transparent,rgba(11,15,20,.92))}
+
+table{width:100%;border-collapse:collapse;margin-top:26px;font-size:15px}
+th,td{text-align:left;padding:15px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-faint);font-weight:500}
+td{color:var(--paper-dim)}
+td b{color:#fff;font-weight:600;display:block;margin-bottom:2px}
+
+/* ---------- project cards ---------- */
+.cards{display:grid;gap:16px;margin-top:44px}
+@media(min-width:760px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{border:1px solid var(--line);border-radius:6px;padding:26px;background:var(--ink-2);transition:border-color .25s,transform .25s var(--ease)}
+.card:hover{border-color:#3a4c63;transform:translateY(-3px)}
+.card .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--blue)}
+.card h3{margin:12px 0 7px}
+.card p{color:var(--paper-dim);font-size:14.5px}
+
+/* ---------- "needs your input" blocks ----------
+   Amber, and deliberately the only warm thing on the page, so it is obvious at a glance
+   that these are open questions and not finished copy. */
+.ask{border:1px solid rgba(232,179,60,.42);border-left:3px solid var(--amber);border-radius:5px;
+  padding:24px 26px;background:linear-gradient(90deg,rgba(232,179,60,.075),rgba(232,179,60,.015));margin-top:34px}
+.ask .tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(232,179,60,.45);padding:4px 9px;border-radius:3px;margin-bottom:14px}
+.ask h3{color:#fff;margin-bottom:8px}
+.ask p{color:rgba(242,235,215,.8);font-size:15px}
+.ask p+p{margin-top:9px}
+
+/* ---------- contact ---------- */
+.contact{position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(900px 480px at 22% 40%,rgba(43,138,224,.14),transparent 70%)}
+.cinfo{display:grid;gap:26px;margin-top:44px;position:relative}
+@media(min-width:760px){.cinfo{grid-template-columns:repeat(3,1fr)}}
+.cinfo span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:9px}
+.cinfo a,.cinfo p{font-size:17px;font-weight:500;color:#fff;line-height:1.5}
+.cinfo a{border-bottom:1px solid transparent;transition:border-color .2s}
+.cinfo a:hover{border-bottom-color:var(--blue)}
+
+footer{border-top:1px solid var(--line);padding:30px 0;font-size:13px;color:var(--paper-faint)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <nav>
+    <a class="brand" href="#top">
+      <img src="img/logo.webp" alt="">
+      <span>
+        <b>Power Megamix Batching Inc.</b>
+        <i>Ready-mix concrete &middot; Cavite</i>
+      </span>
+    </a>
+    <div class="navlinks">
+      <a href="#supply">Supply</a>
+      <a href="#plants">Plants</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="cta" href="#contact">Request a quote</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ---------------- hero ---------------- -->
+  <div class="hero">
+    <div class="hero-img">
+      <img src="img/gate.webp" alt="The Power Megamix Batching Inc. plant entrance in Kawit, Cavite">
+    </div>
+    <div class="grid-overlay"></div>
+    <div class="wrap">
+      <p class="eyebrow rv">Kawit, Cavite &middot; Since 2017</p>
+      <h1 class="rv" style="margin-top:22px">Concrete on site, on the hour you said.</h1>
+      <p class="lead rv">Ready-mixed concrete and pumping from two batching plants on the main
+         routes through Cavite &mdash; because a pour that waits is a pour that fails.</p>
+      <div class="btns rv">
+        <a class="btn btn-p" href="#contact">Request a quote</a>
+        <a class="btn btn-g" href="#supply">What we supply</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------------- stats ---------------- -->
+  <div class="stats">
+    <div class="inner">
+      <div class="stat"><b>2017</b><span>Established</span></div>
+      <div class="stat"><b>02</b><span>Batching plants</span></div>
+      <div class="stat"><b><small>Cavite &amp;<br>Metro Manila</small></b><span>Delivery area</span></div>
+      <div class="stat"><b><small>Ready-mix<br>&amp; pumping</small></b><span>Supply and placement</span></div>
+    </div>
+  </div>
+
+  <!-- ---------------- supply ---------------- -->
+  <section id="supply">
+    <div class="wrap">
+      <p class="eyebrow rv">What we supply</p>
+      <h2 class="rv" style="margin-top:20px">Concrete, and the equipment to place it.</h2>
+      <p class="lead rv">One supplier for the mix and the pump, so nobody is standing on site
+         waiting for a second contractor to arrive.</p>
+
+      <div class="rows">
+        <div class="row rv">
+          <p class="n">01</p>
+          <h3>Ready-mix concrete</h3>
+          <p>Batched to the class and slump your engineer specifies, delivered by transit mixer
+             and timed to your pour schedule.</p>
+        </div>
+        <div class="row rv">
+          <p class="n">02</p>
+          <h3>Line pump</h3>
+          <p>For placements the mixer chute cannot reach &mdash; tight sites, back lots, work
+             behind an existing structure.</p>
+        </div>
+        <div class="row rv">
+          <p class="n">03</p>
+          <h3>Boom pump</h3>
+          <p>Height and reach for structural pours, slabs and elevated decks.</p>
+        </div>
+      </div>
+
+      <div class="ask rv">
+        <span class="tag">To confirm with the office</span>
+        <h3>Concrete classes and strengths</h3>
+        <p>An estimator looks for this before anything else on the page. Send the classes you
+           batch &mdash; 3,000 psi, 4,000 psi, or whatever designations appear on your quotes
+           &mdash; and they go here as a table.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------- plants ---------------- -->
+  <section id="plants" class="band">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow rv">Plants</p>
+          <h2 class="rv" style="margin-top:20px">Sited on the roads you are building on.</h2>
+          <p class="lead rv">Concrete has a working life measured in minutes. Distance from
+             plant to pour is not a detail in this business &mdash; it is the business. Both
+             plants sit on the main corridors through Cavite.</p>
+          <table class="rv">
+            <tr><th>Plant</th><th>Location</th></tr>
+            <tr>
+              <td><b>Main plant</b></td>
+              <td>Centennial Road, Brgy. Marulas<br>Kawit, Cavite 4104</td>
+            </tr>
+            <tr>
+              <td><b>Second plant</b></td>
+              <td>Antero Soriano Highway<br>Tramo&ndash;Bantayan</td>
+            </tr>
+          </table>
+        </div>
+        <figure class="shot rv" style="margin:0">
+          <img src="img/plant.webp" alt="A transit mixer at the batching plant with the cement silos behind">
+          <figcaption>Main plant &mdash; Kawit, Cavite</figcaption>
+        </figure>
+      </div>
+
+      <div class="ask rv">
+        <span class="tag">To confirm with the office</span>
+        <h3>Capacity and fleet</h3>
+        <p>Cubic metres per hour at each plant, number of transit mixers, number of pumps.</p>
+        <p>These three numbers decide whether a contractor believes you can carry their pour
+           schedule &mdash; and no competitor in Cavite publishes them, so putting them here is
+           an advantage rather than table stakes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------- projects ---------------- -->
+  <section id="projects">
+    <div class="wrap">
+      <p class="eyebrow rv">Projects &amp; clients</p>
+      <h2 class="rv" style="margin-top:20px">Supplied on public infrastructure across Cavite.</h2>
+      <p class="lead rv">Road and structural work along the province's main corridors.</p>
+
+      <div class="cards">
+        <div class="card rv"><p class="k">Road works</p><h3>Daang Hari Road</h3><p>Cavite.</p></div>
+        <div class="card rv"><p class="k">Road works</p><h3>Aguinaldo Highway</h3><p>Cavite.</p></div>
+        <div class="card rv"><p class="k">Road works</p><h3>Daang Hari Extension</h3><p>Imus City, Cavite.</p></div>
+      </div>
+
+      <div class="ask rv">
+        <span class="tag">Needs your sign-off before publishing</span>
+        <h3>Named clients and photographs of actual pours</h3>
+        <p><b style="color:#fff">This is the single highest-value thing missing from the page.</b>
+           One named contractor client &mdash; particularly an international one &mdash; does
+           more for a bid than any amount of design.</p>
+        <p>Two things needed: written permission to name each client, and four to six
+           photographs of real pours. Public records point to a supply relationship with a
+           large international water and power contractor; that stays off this site until you
+           confirm it and clear the naming.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------- accreditation ---------------- -->
+  <section class="band">
+    <div class="wrap">
+      <div class="split" style="align-items:start">
+        <div>
+          <p class="eyebrow rv">Accreditation</p>
+          <h2 class="rv" style="margin-top:20px">The documents procurement asks for first.</h2>
+          <p class="lead rv">Government and large private tenders check accreditation before
+             they look at price. Having the current certificates on the site removes a round of
+             emails from every bid.</p>
+        </div>
+        <figure class="shot rv" style="margin:0">
+          <img src="img/silos.webp" alt="Cement storage silos at the batching plant">
+          <figcaption>Cement silos &mdash; main plant</figcaption>
+        </figure>
+      </div>
+
+      <div class="ask rv">
+        <span class="tag">Current copies needed</span>
+        <h3>PCAB accreditation &mdash; current certificate required</h3>
+        <p><b style="color:#fff">Important:</b> the only accreditation record findable publicly
+           ran to <b style="color:#fff">December 2020</b> and is out of date. Nothing about
+           accreditation goes on this site until the office sends the current certificate
+           &mdash; publishing a lapsed one would be worse than publishing none at all.</p>
+        <p>Please send: current PCAB certificate and category, SEC registration, BIR
+           registration, mayor's permit, and any ISO or DPWH accreditation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------- contact ---------------- -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="eyebrow rv">Contact</p>
+      <h2 class="rv" style="margin-top:20px">Tell us the class, the volume and the date.</h2>
+      <p class="lead rv">Send the concrete class, the volume in cubic metres and the site
+         location. You get back a price and a delivery window.</p>
+
+      <div class="cinfo">
+        <div class="rv"><span>Phone</span><a href="tel:+639977703807">0997 770 3807</a></div>
+        <div class="rv"><span>Email</span><a href="mailto:powermegamixbatchinginc@gmail.com">powermegamixbatchinginc@gmail.com</a></div>
+        <div class="rv"><span>Main plant</span><p>Centennial Road, Brgy. Marulas<br>Kawit, Cavite 4104</p></div>
+      </div>
+
+      <div class="ask rv">
+        <span class="tag">Worth doing with the site</span>
+        <h3>An email address on your own domain</h3>
+        <p>The address above is a Gmail account. For a company bidding on government work,
+           <b style="color:#fff">sales@powermegamix.com</b> reads very differently across a
+           procurement officer's desk. It comes with the website at no extra cost.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 Power Megamix Batching Inc.</p>
+    <p>Centennial Road, Brgy. Marulas, Kawit, Cavite 4104 &middot; 0997 770 3807</p>
+  </div>
+</footer>
+
+<script>
+// Header goes solid once you leave the hero.
+const hdr = document.getElementById('hdr');
+const onScroll = () => hdr.classList.toggle('stuck', window.scrollY > 24);
+onScroll();
+addEventListener('scroll', onScroll, {passive:true});
+
+// Reveal on scroll. A plain scroll check runs alongside the observer so nothing can stay
+// invisible if IntersectionObserver is throttled or never fires — an animation is not worth
+// a blank page.
+(function(){
+  const items = [].slice.call(document.querySelectorAll('.rv'));
+  items.forEach(function(el,i){ el.style.transitionDelay = (Math.min(i%6,5)*70) + 'ms'; });
+  var show = function(el){ el.classList.add('in'); };
+  if (!('IntersectionObserver' in window)) { items.forEach(show); return; }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+  }, {rootMargin:'0px 0px -10% 0px', threshold:.05});
+  items.forEach(function(el){ io.observe(el); });
+  var backstop = function(){
+    items.forEach(function(el){
+      var b = el.getBoundingClientRect();
+      if (b.top < innerHeight * .95 && b.bottom > 0) show(el);
+    });
+  };
+  addEventListener('scroll', backstop, {passive:true});
+  setTimeout(backstop, 1200);
+})();
+</script>
+</body>
+</html>

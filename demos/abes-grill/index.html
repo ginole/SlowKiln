@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abe's Grill — Breakfast from 4 a.m. on Highway 72, Corinth MS</title>
+<meta name="description" content="Family-run diner at 803 Hwy 72 W, Corinth, Mississippi. Homemade biscuits, biscuits and gravy, ribeye sandwich. Open 4 a.m. to 2 p.m., Monday to Friday. Serving Highway 72 since 1974.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&family=Archivo+Narrow:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Abe's Grill — concept page.
+   Register: a hand-painted highway sign, not a food-blog template. Cream paper, one
+   tomato red, heavy condensed type. No photographs, on purpose — every photo of this
+   place online belongs to whoever took it, so the page is built to carry itself on
+   typography and let the owner drop his own pictures into marked slots later.
+   The single loudest fact is the 4 a.m. opening; the layout is arranged around it.
+   ============================================================ */
+:root{
+  --cream:#f7f2e7;
+  --cream-2:#efe7d6;
+  --ink:#1c1917;
+  --ink-2:#3f3a35;
+  --ink-dim:#6b635a;
+  --red:#c0392b;
+  --red-deep:#96271c;
+  --green:#2f5d3f;
+  --rule:#d9cdb6;
+  --sans:'Archivo',system-ui,sans-serif;
+  --cond:'Archivo Narrow','Archivo',system-ui,sans-serif;
+  --black:'Archivo Black','Archivo',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+h1,h2,h3{margin:0;line-height:1.02;letter-spacing:-.02em}
+p{margin:0}
+
+/* ---------- unofficial notice ----------
+   Kept, not hidden. A page that looks like a real business's own site, on a public URL,
+   should say who actually made it — otherwise it is just impersonation with good
+   intentions. It also does the introducing before the owner has to ask. */
+.notice{background:var(--ink);color:var(--cream);font-size:13px;padding:9px 22px;text-align:center;line-height:1.5}
+.notice b{color:#fff}
+.notice a{text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:40;background:rgba(247,242,231,.96);border-bottom:2px solid var(--ink)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 22px;max-width:1080px;margin:0 auto}
+.mark{display:flex;align-items:center;gap:11px;min-width:0}
+.mark .badge{width:42px;height:42px;flex:none;background:var(--red);color:#fff;border-radius:50%;display:grid;place-items:center;font-family:var(--black);font-size:19px;letter-spacing:-.02em}
+.mark b{display:block;font-family:var(--black);font-size:17px;letter-spacing:-.02em;line-height:1}
+.mark i{display:block;font-style:normal;font-family:var(--cond);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-top:3px}
+.navlinks{display:none;gap:26px}
+.navlinks a{font-family:var(--cond);font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.navlinks a:hover{color:var(--red)}
+.call{background:var(--red);color:#fff;font-family:var(--cond);font-weight:700;font-size:15px;letter-spacing:.04em;text-transform:uppercase;padding:11px 18px;border-radius:3px;white-space:nowrap;transition:background .2s,transform .14s}
+.call:hover{background:var(--red-deep)}
+.call:active{transform:scale(.97)}
+@media(min-width:900px){.navlinks{display:flex}}
+@media(max-width:560px){.mark i{display:none}.mark b{font-size:15px}.call{font-size:13px;padding:10px 13px}}
+
+/* ---------- hero ---------- */
+.hero{padding:64px 0 0;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(var(--rule) 1px,transparent 1px);background-size:22px 22px;
+  -webkit-mask-image:linear-gradient(180deg,#000,transparent 75%);mask-image:linear-gradient(180deg,#000,transparent 75%)}
+.hero .wrap{position:relative}
+.kicker{font-family:var(--cond);font-weight:700;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:12px}
+.kicker::after{content:"";height:2px;flex:1;max-width:90px;background:var(--red);opacity:.35}
+.hero h1{font-family:var(--black);font-size:clamp(42px,9vw,104px);line-height:.92;letter-spacing:-.035em;margin-top:20px;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--red);display:block}
+.hero .sub{font-size:clamp(16px,1.9vw,21px);color:var(--ink-2);max-width:46ch;margin-top:26px}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{font-family:var(--cond);font-weight:700;font-size:16px;letter-spacing:.05em;text-transform:uppercase;padding:15px 28px;border-radius:3px;transition:transform .14s,background .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.btn-r{background:var(--red);color:#fff}
+.btn-r:hover{background:var(--red-deep)}
+.btn-o{border:2px solid var(--ink);color:var(--ink)}
+.btn-o:hover{background:var(--ink);color:var(--cream)}
+
+/* ---------- hours slab: the 4 a.m. is the story ---------- */
+.slab{background:var(--ink);color:var(--cream);margin-top:56px}
+.slab .inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:0}
+.slab .big{padding:34px 22px;border-bottom:1px solid rgba(247,242,231,.16)}
+.slab .big b{font-family:var(--black);font-size:clamp(40px,8vw,72px);line-height:.9;display:block;letter-spacing:-.035em}
+.slab .big span{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#c9bfae;display:block;margin-top:12px}
+.slab .list{padding:26px 22px}
+.hrow{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid rgba(247,242,231,.13);font-size:15px}
+.hrow:last-child{border-bottom:none}
+.hrow b{font-family:var(--cond);font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#c9bfae}
+.hrow.shut span{color:#8e857a}
+@media(min-width:820px){.slab .inner{grid-template-columns:1fr 1fr}.slab .big{border-bottom:none;border-right:1px solid rgba(247,242,231,.16);display:flex;flex-direction:column;justify-content:center;padding:48px 34px}.slab .list{padding:40px 34px}}
+
+section{padding:74px 0}
+@media(min-width:820px){section{padding:100px 0}}
+.band{background:var(--cream-2);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+h2{font-family:var(--black);font-size:clamp(28px,4.6vw,50px);text-transform:uppercase;letter-spacing:-.03em;line-height:.98}
+.lead{color:var(--ink-2);font-size:17px;max-width:56ch;margin-top:18px}
+
+/* ---------- menu ---------- */
+.menu{margin-top:44px;border-top:2px solid var(--ink)}
+.item{display:flex;align-items:baseline;gap:14px;padding:20px 0;border-bottom:1px solid var(--rule)}
+.item h3{font-family:var(--cond);font-weight:700;font-size:clamp(19px,2.4vw,25px);text-transform:uppercase;letter-spacing:.01em;white-space:nowrap}
+.item .dots{flex:1;border-bottom:2px dotted var(--rule);transform:translateY(-4px)}
+.item p{color:var(--ink-dim);font-size:14.5px;max-width:34ch;text-align:right}
+@media(max-width:640px){.item{flex-wrap:wrap;gap:6px}.item .dots{display:none}.item p{text-align:left;max-width:none}}
+
+/* ---------- story ---------- */
+.story{display:grid;gap:34px;margin-top:44px}
+@media(min-width:900px){.story{grid-template-columns:1.1fr .9fr;gap:56px}}
+.pull{border-left:5px solid var(--red);padding:6px 0 6px 22px;font-family:var(--cond);font-weight:600;font-size:clamp(21px,2.7vw,28px);line-height:1.25;letter-spacing:-.01em}
+.facts{margin-top:30px}
+.frow{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.frow b{font-family:var(--cond);font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);font-size:13px}
+
+/* ---------- rating ---------- */
+.rate{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:38px;padding:24px 26px;background:var(--cream);border:2px solid var(--ink);border-radius:4px}
+.rate .n{font-family:var(--black);font-size:52px;line-height:1;letter-spacing:-.04em}
+.rate .stars{color:var(--red);font-size:20px;letter-spacing:3px}
+.rate p{font-size:14.5px;color:var(--ink-dim);max-width:34ch}
+
+/* ---------- photo slots ---------- */
+.slots{display:grid;gap:16px;margin-top:44px}
+@media(min-width:720px){.slots{grid-template-columns:repeat(3,1fr)}}
+.slot{border:2px dashed var(--rule);border-radius:4px;aspect-ratio:4/3;display:grid;place-items:center;text-align:center;padding:20px;background:rgba(255,255,255,.4)}
+.slot span{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-dim);line-height:1.7}
+
+/* ---------- find us ---------- */
+.find{background:var(--ink);color:var(--cream)}
+.find h2{color:#fff}
+.find .lead{color:#c9bfae}
+.finfo{display:grid;gap:26px;margin-top:40px}
+@media(min-width:760px){.finfo{grid-template-columns:repeat(3,1fr)}}
+.finfo span{display:block;font-family:var(--cond);font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:9px;filter:brightness(1.5)}
+.finfo a,.finfo p{font-size:17px;color:#fff;line-height:1.55}
+.finfo a{border-bottom:1px solid transparent}
+.finfo a:hover{border-bottom-color:var(--red)}
+
+footer{background:#12100e;color:#8e857a;font-size:13px;padding:26px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+footer a{text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<div class="notice">
+  Concept page, not the restaurant's official site &mdash; built as a proposal by
+  <b>Veracod</b> and not affiliated with Abe's Grill. Everything on it is from public
+  listings. <a href="tel:+16622866124">Call the diner directly</a> to check hours.
+</div>
+
+<header>
+  <nav>
+    <a class="mark" href="#top">
+      <span class="badge">A</span>
+      <span>
+        <b>Abe's Grill</b>
+        <i>Corinth, Mississippi &middot; Since 1974</i>
+      </span>
+    </a>
+    <div class="navlinks">
+      <a href="#menu">What people order</a>
+      <a href="#story">Since 1974</a>
+      <a href="#find">Find us</a>
+    </div>
+    <a class="call" href="tel:+16622866124">(662) 286-6124</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ---------------- hero ---------------- -->
+  <div class="hero">
+    <div class="wrap">
+      <p class="kicker rv">803 Highway 72 West &middot; Corinth, Mississippi</p>
+      <h1 class="rv">Biscuits are on<em>at four a.m.</em></h1>
+      <p class="sub rv">A family grill on Highway 72, in the same building since 1974.
+         Breakfast starts before the highway does.</p>
+      <div class="acts rv">
+        <a class="btn btn-r" href="tel:+16622866124">Call (662) 286-6124</a>
+        <a class="btn btn-o" href="#find">Get directions</a>
+      </div>
+    </div>
+
+    <!-- hours -->
+    <div class="slab">
+      <div class="inner">
+        <div class="big rv">
+          <b>4<span style="font-size:.42em;letter-spacing:0"> A.M.</span></b>
+          <span>Doors open, Monday to Friday</span>
+        </div>
+        <div class="list rv">
+          <div class="hrow"><b>Monday &ndash; Friday</b><span>4:00 a.m. &ndash; 2:00 p.m.</span></div>
+          <div class="hrow shut"><b>Saturday</b><span>Closed</span></div>
+          <div class="hrow shut"><b>Sunday</b><span>Closed</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------------- menu ---------------- -->
+  <section id="menu">
+    <div class="wrap">
+      <p class="kicker rv">What people order</p>
+      <h2 class="rv" style="margin-top:18px">The short list.</h2>
+      <p class="lead rv">Not the whole menu &mdash; just what customers keep writing about.</p>
+
+      <div class="menu">
+        <div class="item rv">
+          <h3>Homemade biscuits</h3><span class="dots"></span>
+          <p>The thing this place is known for.</p>
+        </div>
+        <div class="item rv">
+          <h3>Biscuits &amp; gravy</h3><span class="dots"></span>
+          <p>The order most people come in for.</p>
+        </div>
+        <div class="item rv">
+          <h3>Ribeye sandwich</h3><span class="dots"></span>
+          <p>The one people drive out of their way for.</p>
+        </div>
+        <div class="item rv">
+          <h3>Omelettes</h3><span class="dots"></span>
+          <p>Cooked to order on the flat top.</p>
+        </div>
+        <div class="item rv">
+          <h3>Hashbrowns</h3><span class="dots"></span>
+          <p>On the side of nearly everything.</p>
+        </div>
+        <div class="item rv">
+          <h3>Chocolate chip cookies</h3><span class="dots"></span>
+          <p>Homemade. Ask if there are any left.</p>
+        </div>
+      </div>
+
+      <div class="slots">
+        <div class="slot rv"><span>Photo slot<br>The counter</span></div>
+        <div class="slot rv"><span>Photo slot<br>Biscuits &amp; gravy</span></div>
+        <div class="slot rv"><span>Photo slot<br>Abe at the grill</span></div>
+      </div>
+      <p class="lead rv" style="font-size:14px;margin-top:16px">
+        Left empty on purpose. Photographs of the diner online belong to the people who took
+        them &mdash; these slots are for the family's own pictures.
+      </p>
+    </div>
+  </section>
+
+  <!-- ---------------- story ---------------- -->
+  <section id="story" class="band">
+    <div class="wrap">
+      <p class="kicker rv">Since 1974</p>
+      <h2 class="rv" style="margin-top:18px">Fifty years, one building,<br>three people.</h2>
+
+      <div class="story">
+        <div>
+          <p class="pull rv">Abe, his wife Terri and their son Ryan. That is the whole staff,
+             and it has been the whole staff for a very long time.</p>
+          <p class="lead rv">The grill has been at 803 Highway 72 West since 1974 &mdash; long
+             enough to be called the oldest continuously operating diner on this stretch of
+             Route 72. Opening at four in the morning is not a gimmick; it is what a highway
+             town needs from a kitchen.</p>
+        </div>
+        <div>
+          <div class="facts rv">
+            <div class="frow"><b>Opened</b><span>1974</span></div>
+            <div class="frow"><b>Same location</b><span>50 years</span></div>
+            <div class="frow"><b>Run by</b><span>Abe, Terri &amp; Ryan</span></div>
+            <div class="frow"><b>On</b><span>U.S. Route 72</span></div>
+          </div>
+
+          <div class="rate rv">
+            <div>
+              <p class="n">4.8</p>
+              <p class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+            </div>
+            <p>Google rating, from a few hundred reviews across Google, Yelp and Tripadvisor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------- find ---------------- -->
+  <section id="find" class="find">
+    <div class="wrap">
+      <p class="kicker rv" style="color:#e8735f">Find us</p>
+      <h2 class="rv" style="margin-top:18px">On 72, west of town.</h2>
+      <p class="lead rv">Park out front. Come hungry, come early &mdash; the doors shut at
+         two in the afternoon.</p>
+
+      <div class="finfo">
+        <div class="rv">
+          <span>Address</span>
+          <a href="https://www.google.com/maps/search/?api=1&query=Abe%27s+Grill+803+Hwy+72+W+Corinth+MS+38834"
+             target="_blank" rel="noreferrer">803 Hwy 72 W<br>Corinth, MS 38834</a>
+        </div>
+        <div class="rv">
+          <span>Phone</span>
+          <a href="tel:+16622866124">(662) 286-6124</a>
+        </div>
+        <div class="rv">
+          <span>Hours</span>
+          <p>Mon&ndash;Fri 4:00 a.m. &ndash; 2:00 p.m.<br>Closed Saturday &amp; Sunday</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Abe's Grill &middot; 803 Hwy 72 W, Corinth, MS 38834 &middot; (662) 286-6124</p>
+    <p>Concept page by <b>Veracod</b> &mdash; not affiliated with the restaurant.</p>
+  </div>
+</footer>
+
+<script>
+// Reveal on scroll, with a plain scroll check alongside the observer so a throttled or
+// missing IntersectionObserver can never leave the page blank.
+(function(){
+  var items = [].slice.call(document.querySelectorAll('.rv'));
+  items.forEach(function(el,i){ el.style.transitionDelay = (Math.min(i%5,4)*65) + 'ms'; });
+  var show = function(el){ el.classList.add('in'); };
+  if (!('IntersectionObserver' in window)) { items.forEach(show); return; }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+  }, {rootMargin:'0px 0px -10% 0px', threshold:.05});
+  items.forEach(function(el){ io.observe(el); });
+  var backstop = function(){
+    items.forEach(function(el){
+      var b = el.getBoundingClientRect();
+      if (b.top < innerHeight * .95 && b.bottom > 0) show(el);
+    });
+  };
+  addEventListener('scroll', backstop, {passive:true});
+  setTimeout(backstop, 1200);
+})();
+</script>
+</body>
+</html>

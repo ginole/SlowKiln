@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Berc's Steakhouse — Peterborough, Ontario</title>
+<meta name="description" content="Owned and operated in Peterborough for over fifteen years, with a private room and custom menus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600;6..96,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#12100e;--bg2:#1a1714;--ink:#f0ebe3;--ink2:rgba(240,235,227,.74);--dim:rgba(240,235,227,.5);
+ --accent:#c8a24a;--accent2:#e0bd6a;--rule:#2e2823;--slabBg:#0a0908;--slabInk:#f0ebe3;
+ --display:'Bodoni Moda',Georgia,serif;--cond:'Inter',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;
+ --ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+p{margin:0}
+h1,h2,h3{margin:0;line-height:1.05;letter-spacing:-.02em}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+.kick{font-family:var(--cond);font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:12px}
+.kick::after{content:"";height:1px;flex:1;max-width:80px;background:var(--rule)}
+
+.notice{background:var(--slabBg);color:var(--slabInk);font-size:12.5px;padding:9px 20px;text-align:center;line-height:1.5;opacity:.95}
+.notice a{text-decoration:underline;text-underline-offset:3px}
+
+header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 96%,transparent);border-bottom:1px solid var(--rule)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 22px;max-width:1040px;margin:0 auto}
+.brand b{font-family:var(--display);font-size:17px;letter-spacing:-.02em;text-transform:none}
+.brand i{display:block;font-style:normal;font-family:var(--cond);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);margin-top:2px}
+.btn{font-family:var(--cond);font-weight:600;font-size:14.5px;padding:11px 20px;border-radius:3px;white-space:nowrap;transition:transform .14s,background .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.btn-a{background:var(--accent);color:#fff}
+.btn-a:hover{background:var(--accent2)}
+.btn-o{border:1px solid var(--ink);color:var(--ink)}
+.btn-o:hover{background:var(--ink);color:var(--bg)}
+
+.hero{padding:70px 0 0;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.45;
+ background-image:radial-gradient(var(--rule) 1px,transparent 1px);background-size:22px 22px;
+ -webkit-mask-image:linear-gradient(180deg,#000,transparent 72%);mask-image:linear-gradient(180deg,#000,transparent 72%)}
+.hero .wrap{position:relative}
+.hero h1{font-family:var(--display);font-size:clamp(38px,7.6vw,86px);line-height:1.0;letter-spacing:-.035em;margin-top:20px;text-transform:none;max-width:16ch}
+.hero .sub{font-size:clamp(16px,1.8vw,20px);color:var(--ink2);max-width:48ch;margin-top:24px}
+.acts{display:flex;gap:11px;flex-wrap:wrap;margin-top:30px}
+
+.slab{background:var(--slabBg);color:var(--slabInk);margin-top:56px}
+.slab .in{max-width:1040px;margin:0 auto;padding:34px 22px;display:grid;gap:26px}
+@media(min-width:820px){.slab .in{grid-template-columns:1fr 1fr;padding:44px 22px;gap:50px}}
+.hours .hr{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid color-mix(in srgb,var(--slabInk) 16%,transparent);font-size:15px}
+.hours .hr:last-child{border-bottom:none}
+.hours .hr b{font-family:var(--cond);font-weight:600;letter-spacing:.09em;text-transform:uppercase;font-size:13px;opacity:.72}
+.slab h2{font-family:var(--display);font-size:clamp(24px,3.4vw,36px);text-transform:none}
+.slab p{opacity:.78;margin-top:12px;font-size:15.5px}
+
+section{padding:72px 0}
+@media(min-width:820px){section{padding:96px 0}}
+.band{background:var(--bg2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+h2{font-family:var(--display);font-size:clamp(26px,4.2vw,44px);text-transform:none;letter-spacing:-.025em}
+.lead{color:var(--ink2);font-size:16.5px;max-width:56ch;margin-top:16px}
+
+.menu{margin-top:40px;border-top:1px solid var(--ink)}
+.item{display:flex;align-items:baseline;gap:14px;padding:18px 0;border-bottom:1px solid var(--rule)}
+.item h3{font-family:var(--cond);font-weight:600;font-size:clamp(17px,2.1vw,22px);white-space:nowrap}
+.item .dots{flex:1;border-bottom:1px dotted var(--rule);transform:translateY(-4px)}
+.item p{color:var(--dim);font-size:14px;max-width:32ch;text-align:right}
+@media(max-width:640px){.item{flex-wrap:wrap;gap:5px}.item .dots{display:none}.item p{text-align:left;max-width:none}}
+
+.slots{display:grid;gap:14px;margin-top:40px}
+@media(min-width:720px){.slots{grid-template-columns:repeat(3,1fr)}}
+.slot{border:1px dashed var(--rule);border-radius:4px;aspect-ratio:4/3;display:grid;place-items:center;text-align:center;padding:18px}
+.slot span{font-family:var(--cond);font-weight:600;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);line-height:1.7}
+
+.ask{border:1px solid var(--accent);border-left:3px solid var(--accent);border-radius:4px;padding:20px 22px;margin-top:34px;background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.ask .tag{display:inline-block;font-family:var(--cond);font-weight:600;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:3px 8px;border-radius:2px;margin-bottom:11px}
+.ask p{color:var(--ink2);font-size:15px}
+
+.find{background:var(--slabBg);color:var(--slabInk)}
+.find h2,.find .kick{color:var(--slabInk)}
+.find .kick{color:var(--accent2)}
+.find .lead{color:color-mix(in srgb,var(--slabInk) 74%,transparent)}
+.fi{display:grid;gap:24px;margin-top:38px}
+@media(min-width:760px){.fi{grid-template-columns:repeat(3,1fr)}}
+.fi span{display:block;font-family:var(--cond);font-weight:600;font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--accent2);margin-bottom:8px}
+.fi a,.fi p{font-size:16.5px;line-height:1.55}
+
+footer{background:var(--slabBg);color:color-mix(in srgb,var(--slabInk) 55%,transparent);border-top:1px solid color-mix(in srgb,var(--slabInk) 14%,transparent);font-size:12.5px;padding:24px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<div class="notice">
+  Concept page, not this restaurant&rsquo;s official site &mdash; made as a proposal by
+  <b>Veracod</b>, not affiliated with Berc's Steakhouse. Details are from public listings;
+  call the restaurant to confirm.
+</div>
+
+<header>
+  <nav>
+    <a class="brand" href="#top"><b>Berc's Steakhouse</b><i>Peterborough, Ontario</i></a>
+    
+  </nav>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <p class="kick rv">Steakhouse &middot; Peterborough, Ontario</p>
+      <h1 class="rv">Steaks, and a room for thirty.</h1>
+      <p class="sub rv">Owned and operated in Peterborough for over fifteen years, with a private room and custom menus.</p>
+      <div class="acts rv"><a class="btn btn-a" href="#find">Find us</a><a class="btn btn-o" href="#find">Directions</a></div>
+    </div>
+
+    <div class="slab">
+      <div class="in">
+        <div class="rv">
+          <h2>Hours</h2>
+          <p>Come hungry.</p>
+        </div>
+        <div class="rv"><div class="ask"><span class="tag">Needed from you</span><p>Opening hours. This is the single most looked-at line on a restaurant page and the one most often wrong online.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <p class="kick rv">What people order</p>
+      <h2 class="rv" style="margin-top:16px">The short list.</h2>
+      <p class="lead rv">Not the whole menu &mdash; just what customers keep mentioning.</p>
+      <div class="rv"><div class="ask"><span class="tag">Needed from you</span><p>Six dishes you would want a first-time customer to order, and one line about each.</p></div></div>
+
+      <div class="slots">
+        <div class="slot rv"><span>Photo slot<br>The room</span></div>
+        <div class="slot rv"><span>Photo slot<br>A signature plate</span></div>
+        <div class="slot rv"><span>Photo slot<br>The people</span></div>
+      </div>
+      <p class="lead rv" style="font-size:13.5px;margin-top:14px">
+        Empty on purpose. Photographs on review sites belong to whoever took them &mdash;
+        these slots are for your own pictures.
+      </p>
+    </div>
+  </section>
+
+  <section id="find" class="find">
+    <div class="wrap">
+      <p class="kick rv">Find us</p>
+      <h2 class="rv" style="margin-top:16px">Peterborough, Ontario.</h2>
+      <div class="fi">
+        <div class="rv"><span>Address</span>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Berc's%20Steakhouse%20Peterborough%2C%20Ontario" target="_blank" rel="noreferrer">Peterborough, Ontario</a></div>
+        
+        
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Berc's Steakhouse &middot; Peterborough, Ontario</p>
+    <p>Concept page by <b>Veracod</b> &mdash; not affiliated with the restaurant.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var it=[].slice.call(document.querySelectorAll('.rv'));
+  it.forEach(function(e,i){e.style.transitionDelay=(Math.min(i%5,4)*60)+'ms'});
+  var show=function(e){e.classList.add('in')};
+  if(!('IntersectionObserver' in window)){it.forEach(show);return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px',threshold:.05});
+  it.forEach(function(e){io.observe(e)});
+  var back=function(){it.forEach(function(e){var b=e.getBoundingClientRect();if(b.top<innerHeight*.95&&b.bottom>0)show(e)})};
+  addEventListener('scroll',back,{passive:true});setTimeout(back,1200);
+})();
+</script>
+</body>
+</html>
