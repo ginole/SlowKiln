@@ -7,7 +7,7 @@
 <meta name="description" content="Family owned since 1973 — tableside flambé, fresh seafood, and a banquet room that seats seventy-five.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600&display=swap&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600&display=swap&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 
 <script>
 (function(){var d=document.documentElement;
@@ -130,6 +130,23 @@ footer{background:var(--slabBg);color:color-mix(in srgb,var(--slabInk) 55%,trans
 @media(min-width:720px){footer{padding-bottom:24px}}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
+.offer{background:#0f1216;color:#e8ecef;border-top:4px solid #34d399}
+.offer .okick{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#34d399}
+.offer .okick::after{content:" ▎";animation:blink 1.2s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.offer .okick::after{animation:none}}
+.offer .oh{font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600;font-size:clamp(26px,4vw,40px);letter-spacing:-.02em;margin-top:14px;text-transform:none;color:#fff}
+.offer .olead{color:#b7c0c8;font-size:16.5px;max-width:62ch;margin-top:16px;line-height:1.7}
+.ogrid{display:grid;gap:14px;margin-top:36px}
+@media(min-width:760px){.ogrid{grid-template-columns:repeat(2,1fr)}}
+.oi{border:1px solid #232a31;border-radius:6px;padding:18px 20px;background:#131920}
+.oi b{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:16px;color:#fff}
+.oi span{display:block;color:#9aa5ae;font-size:14px;margin-top:6px;line-height:1.6}
+.oguar{margin-top:30px;font-size:clamp(17px,2.2vw,21px);line-height:1.6;color:#fff;border-left:3px solid #34d399;padding:8px 0 8px 20px;max-width:60ch}
+.octa{margin-top:30px;background:#131920;border:1px solid #232a31;border-radius:6px;padding:22px 24px}
+.octa p{font-size:16.5px;color:#e8ecef;line-height:1.65}
+.octa .osmall{color:#8b969f;font-size:13px;margin-top:10px}
+.offer a{color:#34d399}
 .callbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--slabBg) 92%,transparent);backdrop-filter:blur(10px);border-top:1px solid color-mix(in srgb,var(--slabInk) 16%,transparent)}
 .callbar a{flex:1;text-align:center}
 @media(min-width:720px){.callbar{display:none}}
@@ -165,7 +182,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 <div class="notice">
   Concept page, not this restaurant&rsquo;s official site &mdash; made as a proposal by
   <b>Veracod</b>, not affiliated with Town &amp; Country Steak House. Details are from public listings;
-  call the restaurant to confirm.
+  call the restaurant to confirm. &mdash; <a href="#offer">owner? see the offer</a>
 </div>
 
 <header>
@@ -222,6 +239,25 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
         
         
         
+      </div>
+    </div>
+  </section>
+
+  <section class="offer" id="offer">
+    <div class="wrap">
+      <p class="okick">A note from the studio that built this page</p>
+      <h2 class="oh">Like it? It&rsquo;s yours.</h2>
+      <p class="olead">You are currently paying for two websites that compete with each other on Google — one of them wearing a directory company's ads in the footer. One site, one address, your TouchBistro reservations untouched.</p>
+      <div class="ogrid">
+        <div class="oi rv"><b>$500, once.</b><span>No subscription, no renewal. Hosting for the first year is included.</span></div>
+        <div class="oi rv"><b>You own it.</b><span>Your domain, registered in your name. Every file is yours to keep.</span></div>
+        <div class="oi rv"><b>Nothing changes.</b><span>Whatever already works &mdash; ordering, reservations, gift cards &mdash; stays exactly as it is.</span></div>
+        <div class="oi rv"><b>Live in a week.</b><span>You send corrections once &mdash; hours, menu, photos &mdash; and it goes live.</span></div>
+      </div>
+      <p class="oguar rv">You don&rsquo;t pay a cent until you&rsquo;ve seen the finished site and want it.<br>If it&rsquo;s a no &mdash; no hard feelings, this page comes down.</p>
+      <div class="octa rv">
+        <p><b>To say yes &mdash; or to change anything you see &mdash; just reply to the email that brought you here.</b></p>
+        <p class="osmall">Same-day answer, in writing. This proposal stays up for 30 days, or comes down the moment you ask.</p>
       </div>
     </div>
   </section>

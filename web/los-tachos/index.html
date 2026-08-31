@@ -130,6 +130,23 @@ footer{background:var(--slabBg);color:color-mix(in srgb,var(--slabInk) 55%,trans
 @media(min-width:720px){footer{padding-bottom:24px}}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
+.offer{background:#0f1216;color:#e8ecef;border-top:4px solid #34d399}
+.offer .okick{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#34d399}
+.offer .okick::after{content:" ▎";animation:blink 1.2s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.offer .okick::after{animation:none}}
+.offer .oh{font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600;font-size:clamp(26px,4vw,40px);letter-spacing:-.02em;margin-top:14px;text-transform:none;color:#fff}
+.offer .olead{color:#b7c0c8;font-size:16.5px;max-width:62ch;margin-top:16px;line-height:1.7}
+.ogrid{display:grid;gap:14px;margin-top:36px}
+@media(min-width:760px){.ogrid{grid-template-columns:repeat(2,1fr)}}
+.oi{border:1px solid #232a31;border-radius:6px;padding:18px 20px;background:#131920}
+.oi b{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:16px;color:#fff}
+.oi span{display:block;color:#9aa5ae;font-size:14px;margin-top:6px;line-height:1.6}
+.oguar{margin-top:30px;font-size:clamp(17px,2.2vw,21px);line-height:1.6;color:#fff;border-left:3px solid #34d399;padding:8px 0 8px 20px;max-width:60ch}
+.octa{margin-top:30px;background:#131920;border:1px solid #232a31;border-radius:6px;padding:22px 24px}
+.octa p{font-size:16.5px;color:#e8ecef;line-height:1.65}
+.octa .osmall{color:#8b969f;font-size:13px;margin-top:10px}
+.offer a{color:#34d399}
 .callbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--slabBg) 92%,transparent);backdrop-filter:blur(10px);border-top:1px solid color-mix(in srgb,var(--slabInk) 16%,transparent)}
 .callbar a{flex:1;text-align:center}
 @media(min-width:720px){.callbar{display:none}}
@@ -204,6 +221,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
       </div>
     </div>
   </section>
+
 </main>
 
 <footer>
