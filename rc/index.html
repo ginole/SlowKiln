@@ -8,27 +8,87 @@ h1{font-size:26px;margin:0 0 4px}
 .sub{color:#93a3b5;margin:0 0 22px;font-size:14px}
 a.card{display:block;background:#121a24;border:1px solid #223041;border-radius:10px;padding:14px 16px;margin-bottom:10px;color:#e8edf3;text-decoration:none}
 a.card:active{background:#182330}
+a.card .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
 a.card b{font-size:16.5px}
+a.card em{font-style:normal;font-size:11px;letter-spacing:.1em;padding:3px 8px;border-radius:3px;border:1px solid;white-space:nowrap}
+.v-keep{color:#6ee7a0;border-color:#2c6b46}
+.v-drop{color:#ff8f8f;border-color:#6b2c2c}
+.v-tbd{color:#8fa8c2;border-color:#33475c}
 a.card span{display:block;color:#7f91a6;font-size:13px;margin-top:2px}
-a.card i{display:block;font-style:normal;color:#4aa8ff;font-size:12.5px;margin-top:4px;word-break:break-all}
-.none{border-style:dashed;opacity:.75}
+a.card p{color:#b6c4d4;font-size:13.5px;margin:8px 0 0;line-height:1.55}
+a.card i{display:block;font-style:normal;color:#4aa8ff;font-size:12.5px;margin-top:8px;word-break:break-all}
+.dropped{opacity:.6}
 .foot{color:#5c6f84;font-size:12.5px;margin-top:26px}
 .foot a{color:#8fa8c2}
 </style></head><body><div class="w">
 <h1>调研目录</h1>
 <p class="sub">点每家直接进<b>他们自己的真实网站</b>（新开页）。我们做的演示在 <a href="../web/" style="color:#4aa8ff">/web</a>。</p>
 
-<a class="card" href="https://vitosmoncton.ca/" target="_blank" rel="noreferrer"><b>Vito's Pizza &amp; Restaurant</b><span>Moncton, NB · 自建站 1180 KB</span><i>vitosmoncton.ca</i></a>
-<a class="card" href="https://www.mrswhitescafe.com/" target="_blank" rel="noreferrer"><b>Mrs. White's Golden Rule Cafe</b><span>Phoenix, AZ · Wix</span><i>mrswhitescafe.com</i></a>
-<a class="card none" href="https://www.facebook.com/profile.php?id=100063510444467" target="_blank" rel="noreferrer"><b>Abe's Grill</b><span>Corinth, MS · 没有官网，这是它的 Facebook</span><i>facebook.com → Abe's Grill</i></a>
-<a class="card" href="https://www.barriesteakhouse.ca/" target="_blank" rel="noreferrer"><b>Town &amp; Country Steak House</b><span>Barrie, ON · 之前挡自动请求，手机直接开</span><i>barriesteakhouse.ca</i></a>
-<a class="card" href="https://www.bercs.ca/" target="_blank" rel="noreferrer"><b>Berc's Steakhouse</b><span>Peterborough, ON</span><i>bercs.ca</i></a>
-<a class="card" href="https://www.casanositalianrestaurant.com/" target="_blank" rel="noreferrer"><b>Casano's Italian Restaurant</b><span>Barrie, ON · Squarespace</span><i>casanositalianrestaurant.com</i></a>
-<a class="card" href="https://www.latrattoriaclassicitalian.com/" target="_blank" rel="noreferrer"><b>La Trattoria Classic Italian</b><span>Carrollton, GA · Squarespace</span><i>latrattoriaclassicitalian.com</i></a>
-<a class="card" href="https://lostachos93.com/" target="_blank" rel="noreferrer"><b>Los Tachos Mexican Restaurant</b><span>Bisbee, AZ · 域名疑似挂了，点开验证</span><i>lostachos93.com</i></a>
-<a class="card" href="http://orderbirrieriaguadalajara.com/" target="_blank" rel="noreferrer"><b>Birrieria Guadalajara</b><span>Tucson, AZ · 只有点单页</span><i>orderbirrieriaguadalajara.com</i></a>
-<a class="card" href="https://www.lechatbleu.info/" target="_blank" rel="noreferrer"><b>Bistro Le Chat Bleu</b><span>Baie Verte, NB · Squarespace</span><i>lechatbleu.info</i></a>
-<a class="card" href="https://www.facebook.com/PowerMegamixBatchingInc.2018/" target="_blank" rel="noreferrer"><b>Power Megamix Batching Inc.</b><span>Kawit, Cavite · 没官网，这是它的 Facebook</span><i>facebook.com → PowerMegamixBatchingInc.2018</i></a>
-
-<p class="foot">调研结论（各家有什么功能、做得好不好、还值不值得追）稍后补到这页。</p>
+<a class="card " href="https://vitosmoncton.ca/" target="_blank" rel="noreferrer">
+  <div class="row"><b>Vito's Pizza &amp; Restaurant</b><em class="v-keep">保留</em></div>
+  <span>Moncton, New Brunswick · GoHighLevel 订阅站 · 每页 1.2MB</span>
+  <p>独立单店，与俄亥俄那个带会员系统的连锁 vitos.com 无关。在给 agency 交月费，换来 2 页电话菜单，全站无一张食物照片；FB 上有 8 千粉丝和像样的披萨图，官网完全没用上。</p>
+  <i>vitosmoncton.ca</i>
+</a>
+<a class="card " href="https://www.mrswhitescafe.com/" target="_blank" rel="noreferrer">
+  <div class="row"><b>Mrs. White's Golden Rule Cafe</b><em class="v-keep">保留</em></div>
+  <span>Phoenix, Arizona · Wix · 首页 855KB</span>
+  <p>地标级老店（1964 年、上过 Food Network、市府褒奖），网站明显没人管：社交图标链到 Wix 占位账号、catering 页全是库存占位图、站内两处价格对不上。站上有整组专业菜品摄影可直接用。</p>
+  <i>www.mrswhitescafe.com</i>
+</a>
+<a class="card " href="https://www.facebook.com/AbesGrill/" target="_blank" rel="noreferrer">
+  <div class="row"><b>Abe's Grill</b><em class="v-keep">保留</em></div>
+  <span>Corinth, Mississippi · 无网站（FB 有登录墙）</span>
+  <p>TripAdvisor Corinth 第 1（52 家里），但线上资产为零：FB 不登录看不了，连营业时间各平台都对不上。50 年老店 + 素材已备齐，从零到一最好讲的故事。</p>
+  <i>www.facebook.com</i>
+</a>
+<a class="card " href="https://www.barriesteakhouse.ca/" target="_blank" rel="noreferrer">
+  <div class="row"><b>Town &amp; Country Steak House</b><em class="v-keep">保留</em></div>
+  <span>Barrie, Ontario · 两个订阅站并存</span>
+  <p>同时给本地目录商 BarrieDirect 和 TouchBistro 交钱：目录站页脚挂着目录商自己的分类广告，About Us 竟链到目录商页面；两个域名在 Google 互相打架。订座是 TouchBistro，新站保留外链即可。</p>
+  <i>www.barriesteakhouse.ca</i>
+</a>
+<a class="card dropped" href="https://www.bercs.ca/" target="_blank" rel="noreferrer">
+  <div class="row"><b>Berc's Steakhouse</b><em class="v-drop">剔除</em></div>
+  <span>Peterborough, Ontario · Duda · 现任代理维护</span>
+  <p>页脚署名 PTBOCanada 代理、2026-07 刚重新发布、整套专业摄影 + Toast 礼品卡。站不算烂且有人管，$500 说服不动 —— 剔除。</p>
+  <i>www.bercs.ca</i>
+</a>
+<a class="card " href="https://www.casanositalianrestaurant.com/" target="_blank" rel="noreferrer">
+  <div class="row"><b>Casano's Italian Restaurant</b><em class="v-keep">保留</em></div>
+  <span>Barrie, Ontario · Squarespace 2017 · 单页</span>
+  <p>破得最彻底：菜单是 Word 文档扫描图、分享出去的 og 图是网上扒的剪贴画厨师、导航还留着 New Page 占位名。故事是金矿（1992 年夫妻店、Be nice or leave）。点单在 MeemUp + 三家外卖平台，保留外链。</p>
+  <i>www.casanositalianrestaurant.com</i>
+</a>
+<a class="card " href="https://www.latrattoriaclassicitalian.com/" target="_blank" rel="noreferrer">
+  <div class="row"><b>La Trattoria Classic Italian</b><em class="v-keep">保留</em></div>
+  <span>Carrollton, Georgia · Squarespace 2017 + Toast</span>
+  <p>订座居然是个 Google 表单；首页没有 hero 图、开场是大段浅灰斜体小字；News 链接 404。自家菜品照片现成且质量好。Toast 点单/礼品卡保留外链零迁移。</p>
+  <i>www.latrattoriaclassicitalian.com</i>
+</a>
+<a class="card dropped" href="https://lostachos93.com/" target="_blank" rel="noreferrer">
+  <div class="row"><b>Los Tachos Mexican Restaurant</b><em class="v-drop">剔除</em></div>
+  <span>Bisbee, Arizona · Owner.com（约 $499/月）</span>
+  <p>之前的&quot;无响应&quot;是它对非浏览器 UA 返回 403 —— 站活得很好：2025 风格现代设计 + 在线点单 + 积分会员 + 认真做的本地 SEO。刚升级完，不会买 —— 剔除。</p>
+  <i>lostachos93.com</i>
+</a>
+<a class="card " href="http://orderbirrieriaguadalajara.com/" target="_blank" rel="noreferrer">
+  <div class="row"><b>Birrieria Guadalajara</b><em class="v-keep">保留</em></div>
+  <span>Tucson, Arizona · MenuStar 点单页 · 无 HTTPS</span>
+  <p>40 年老店 + 2025-11 Tucson Foodie 专题报道，但全部线上门面是一个 2020 年搭的白牌点单页：无 HTTPS（浏览器标&quot;不安全&quot;）、照片墙一半是英式烤牛肉之类的库存图、域名叫 order... 而不是品牌名。打法：品牌官网 + 点单按钮外链回 MenuStar，一个系统都不用换。最优先。</p>
+  <i>orderbirrieriaguadalajara.com</i>
+</a>
+<a class="card " href="https://www.lechatbleu.info/" target="_blank" rel="noreferrer">
+  <div class="row"><b>Bistro Le Chat Bleu</b><em class="v-keep">保留</em></div>
+  <span>Baie Verte, New Brunswick · Squarespace 7.0（2015 模板）</span>
+  <p>已转型：周三社区咖啡馆 + 25-45 人包场（Willow Room）。站上有成套专业照片、2026 年还在更新内容，但模板十年没换、全站无菜单无价格、包场没有表单只能发 gmail。切入点是形象翻新 + 包场询价表单，不是省订阅费。</p>
+  <i>www.lechatbleu.info</i>
+</a>
+<a class="card" href="https://www.facebook.com/PowerMegamixBatchingInc.2018/" target="_blank" rel="noreferrer">
+  <div class="row"><b>Power Megamix Batching Inc.</b><em class="v-keep">保留</em></div>
+  <span>Kawit, Cavite · 没官网，只有 Facebook</span>
+  <p>FB 最后更新停在 2024-09，内容全是 HR 类；可用素材只有大门/搅拌站/罐车三张图。</p>
+  <i>facebook.com → PowerMegamixBatchingInc.2018</i>
+</a>
+<p class="foot">「保留/剔除」是 2026-08-31 逐家看过真实网站后的结论，依据写在每张卡里。</p>
 </div></body></html>
