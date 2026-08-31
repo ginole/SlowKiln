@@ -135,7 +135,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 @media(min-width:720px){.callbar{display:none}}
 /* On phones the sticky bottom call bar already carries the number, so the nav button is
    redundant — and with it gone the brand name has the whole row and stops wrapping into it. */
+/* Phones: a landscape hero photo cropped to a tall viewport turns into an unreadable wall of
+   texture (his words on the pizza: "至少要缩小到是披萨吧"). So on phones the photo stops being a
+   background and becomes a contained 4:3 band, with the text stacked below it on the brand slab. */
 @media(max-width:719px){
+  .hero-photo{display:block;min-height:0;background:var(--slabBg)}
+  .hero-photo .hphoto{position:relative;inset:auto;width:100%;aspect-ratio:4/3}
+  .hero-photo .hshade{display:none}
+  .hero-photo .hcontent{padding-top:30px;padding-bottom:36px}
+  .hero-photo h1{text-shadow:none;max-width:none}
+  .hero-photo .sub{text-shadow:none}
   nav .btn{display:none}
   nav{padding:10px 18px}
   .brand{min-width:0}
