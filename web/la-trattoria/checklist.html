@@ -118,7 +118,7 @@ b{font-weight:600}
     d.textContent='Copied - paste it into your email reply to us.';};
   document.getElementById('send').onclick=function(){
     var btn=this;btn.disabled=true;btn.textContent='Sending...';
-    fetch('https://formsubmit.co/ajax/wyndralore@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+    fetch('https://formsubmit.co/ajax/gino.c138@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
       body:JSON.stringify({_subject:"Checklist - La Trattoria Classic Italian",summary:summary(),email:document.getElementById('remail').value,_captcha:'false'})})
     .then(function(res){var d=document.getElementById('done');d.style.display='block';
       if(res.ok){d.textContent='Sent - thank you! We will reply within a day.';btn.textContent='Sent';}
