@@ -131,6 +131,9 @@ blockquote cite{display:block;font-style:normal;font-size:13px;color:var(--dim);
 .dishes{display:grid;gap:16px;margin-top:42px;align-items:start}
 @media(min-width:720px){.dishes{grid-template-columns:repeat(3,1fr)}}
 .dish{aspect-ratio:4/3.2}
+/* Text-only rows are short; letting them stretch to the photo card's height leaves holes in
+   the grid. Align them to the top of their track instead. */
+.dish.txt{align-self:start}
 .dish figcaption b{display:block;font-family:var(--display);font-size:18px;letter-spacing:0}
 .dish figcaption span{display:block;font-size:12.5px;opacity:.85;font-weight:500;margin-top:2px}
 .dish.txt{aspect-ratio:auto;border:1px solid var(--rule);border-radius:4px;padding:20px 22px;background:var(--bg)}
@@ -157,6 +160,41 @@ blockquote cite{display:block;font-style:normal;font-size:13px;color:var(--dim);
 
 /* the dark slab is sometimes a deep shade of the accent itself (Birrieria's maroon), so the
    accent would vanish on it — brands can override with slabAccent. */
+.seasons{background:var(--bg)}
+.sbands{display:grid;gap:12px;margin-top:36px}
+@media(min-width:820px){.sbands{grid-template-columns:repeat(3,1fr)}}
+.sb{border:1px solid var(--rule);border-top:4px solid var(--rule);border-radius:4px;padding:20px 22px;background:var(--bg2)}
+.sb-low{border-top-color:#3f9d6a}
+.sb-mid{border-top-color:var(--accent)}
+.sb-high{border-top-color:#c8552f}
+.sb b{display:block;font-family:var(--display);font-size:20px;letter-spacing:-.01em;text-transform:uppercase}
+.sb .when{display:block;font-size:13px;font-weight:650;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);margin-top:5px}
+.sb .from{display:block;font-family:var(--display);font-size:24px;margin-top:12px}
+.sb .nb{display:block;font-size:13.5px;color:var(--ink2);margin-top:9px;line-height:1.55}
+.book{background:var(--bg2)}
+.bgrid{display:grid;gap:26px;margin-top:38px}
+@media(min-width:900px){.bgrid{grid-template-columns:1.05fr .95fr;gap:44px}}
+.bform{display:grid;gap:13px;background:var(--bg);border:1px solid var(--rule);border-radius:4px;padding:22px}
+.bform label{display:block;font-size:12.5px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
+.bform input,.bform select,.bform textarea{width:100%;box-sizing:border-box;font:inherit;font-size:16px;
+ margin-top:5px;padding:11px 12px;border:1px solid var(--rule);border-radius:3px;background:var(--bg);color:var(--ink)}
+.bform textarea{resize:vertical}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.bform button{margin-top:4px;font:inherit;font-weight:700;font-size:15.5px;padding:13px;border:0;border-radius:4px;background:var(--accent);color:#fff;cursor:pointer}
+.bform button:disabled{opacity:.6}
+.fnote{font-size:12.5px;color:var(--dim);line-height:1.55}
+.chans{display:grid;gap:10px}
+.chan{display:block;border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:4px;padding:13px 16px;background:var(--bg)}
+.chan b{display:block;font-size:15.5px}
+.chan span{display:block;font-size:13px;color:var(--dim);margin-top:2px}
+.steps{margin-top:22px}
+.steps b{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.steps ol{list-style:none;padding:0;margin:12px 0 0;counter-reset:s}
+.steps li{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--rule);font-size:14.5px}
+.steps li:last-child{border-bottom:none}
+.steps em{flex:0 0 22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;
+ font-style:normal;font-size:12px;font-weight:700;display:grid;place-items:center;margin-top:1px}
+.bnote{font-size:13px;color:var(--dim);margin-top:16px;line-height:1.6;border-left:2px solid var(--rule);padding-left:12px}
 .find{background:var(--slabBg);color:var(--slabInk)}
 .find .kick,.find .fi span{color:#F2C14E}
 .find h2.sp{color:var(--slabInk)}
@@ -261,8 +299,8 @@ main>section .kick{color:#2E7D46}
 
 <div class="notice">
   Concept page, not this restaurant&rsquo;s official site &mdash; made as a proposal by
-  <b>Veracod</b>, not affiliated with Birrieria Guadalajara. Details are from public listings;
-  <a href="tel:+15206248020">call the restaurant</a> to confirm. &mdash; <a href="#offer">owner? see the offer</a>
+       <b>Veracod</b>, not affiliated with Birrieria Guadalajara. Details are from public listings;
+       <a href="tel:+15206248020">call them</a> to confirm. &mdash; <a href="#offer">owner? see the offer</a>
 </div>
 
 <header>
@@ -313,6 +351,8 @@ main>section .kick{color:#2E7D46}
       <div class="dishes"><figure class="fig dish rv"><img src="./img/tacos.webp" alt="Birria" loading="lazy" ><figcaption><b>Birria</b><span>The name on the door — forty years of it</span></figcaption></figure><div class="dish txt rv"><p class="mrow"><b>Pozole</b><i class="lead"></i></p><span>Made daily</span></div><div class="dish txt rv"><p class="mrow"><b>Menudo</b><i class="lead"></i></p></div><div class="dish txt rv"><p class="mrow"><b>Huevos rancheros</b><i class="lead"></i></p><span>Breakfast from 7 a.m.</span></div><div class="dish txt rv"><p class="mrow"><b>Steak picado</b><i class="lead"></i></p></div><div class="dish txt rv"><p class="mrow"><b>Rib eye</b><i class="lead"></i></p></div></div>
     </div>
   </section>
+
+
 
 
   <section id="find" class="find">
@@ -452,5 +492,6 @@ window.addEventListener('load',function(){
         scrollTrigger:{trigger:h,start:'top 88%'}})}});
 });
 </script>
+
 </body>
 </html>

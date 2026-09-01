@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Bistro Le Chat Bleu — what we need from you</title>
+<title>Happy Ripples Beach Resort — what we need from you</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:#f6f7f8;color:#191c1f;font:16px/1.65 Inter,system-ui,sans-serif}
@@ -30,11 +30,11 @@ b{font-weight:600}
 </style></head><body><div class="w">
 <p class="kick">Veracod &middot; after you say yes</p>
 <h1>What we need from you.</h1>
-<p class="sub">Send the list below and Bistro Le Chat Bleu's site goes live within a week. Phone photos are genuinely fine &mdash; take them near a window, in daylight.</p>
+<p class="sub">Send the list below and Happy Ripples Beach Resort's site goes live within a week. Phone photos are genuinely fine &mdash; take them near a window, in daylight.</p>
 
 <h2>01 &mdash; Photos (a phone is fine)</h2>
 <ul>
-<li><label><input type="checkbox"> <b>Food:</b> 6&ndash;10 plates &mdash; ideally the ones on the page: Wednesday cafe, The Willow Room, Community events. Plate fills the frame, daylight, no flash.</label></li>
+<li><label><input type="checkbox"> <b>Food:</b> 6&ndash;10 plates &mdash; ideally the ones on the page: Studio, Studio, pool view, Garden View Villa, Capiz House 1, Capiz House 2, Extra breakfast. Plate fills the frame, daylight, no flash.</label></li>
 <li><label><input type="checkbox"> <b>The room:</b> 2&ndash;3 shots &mdash; one from the front door, one of where people sit.</label></li>
 <li><label><input type="checkbox"> <b>Outside:</b> 1&ndash;2 of the front and your sign.</label></li>
 <li><label><input type="checkbox"> <b>People (optional but powerful):</b> you or your team at work &mdash; the story section is built for it.</label></li>
@@ -44,7 +44,7 @@ b{font-weight:600}
 
 <h2>02 &mdash; One email confirming the facts</h2>
 <ul>
-<li><label><input type="checkbox"> Hours exactly as they are on your door (we currently show: Wednesday 10:30 a.m. - 7:30 p.m.; Other days Private events &amp; bookings)</label></li><li><label><input type="checkbox"> Phone (we don't have it) and address 342 Route 970, Baie Verte, NB</label></li><li><label><input type="checkbox"> Names and story facts on the page — correct anything we got wrong</label></li>
+<li><label><input type="checkbox"> Hours exactly as they are on your door (we currently show: Check in 2:00 PM; Check out 12:00 noon; Front desk 24 hours)</label></li><li><label><input type="checkbox"> Phone 0927 713 8968 and address Brgy. Mabilao, San Fabian, Pangasinan 2433</label></li><li><label><input type="checkbox"> Names and story facts on the page — correct anything we got wrong</label></li>
 <li><label><input type="checkbox"> The menu shortlist &mdash; keep, swap or reword any of it. Prices only if you want them shown.</label></li>
 </ul>
 
@@ -87,10 +87,10 @@ b{font-weight:600}
 <div class="field"><b>Your email (so we can reply)</b><input type="email" id="remail" placeholder="you@example.com"></div>
 <div class="btns"><button id="send">Send my answers</button><button id="copy">Copy my answers instead</button></div>
 <div id="done"></div>
-<p class="small">Veracod &mdash; this checklist accompanies the Bistro Le Chat Bleu concept page. Questions: just reply to the email.</p>
+<p class="small">Veracod &mdash; this checklist accompanies the Happy Ripples Beach Resort concept page. Questions: just reply to the email.</p>
 <script>
 (function(){
-  var KEY='vck-le-chat-bleu';
+  var KEY='vck-happy-ripples';
   var boxes=[].slice.call(document.querySelectorAll('li input[type=checkbox]'));
   try{var saved=JSON.parse(localStorage.getItem(KEY)||'{}');
     boxes.forEach(function(b,i){ if(saved.c&&saved.c[i])b.checked=true; });
@@ -103,7 +103,7 @@ b{font-weight:600}
     e:document.getElementById('remail').value}));}catch(e){}}
   document.addEventListener('change',save);document.addEventListener('input',save);
   function summary(){
-    var lines=["Checklist - Bistro Le Chat Bleu",''];
+    var lines=["Checklist - Happy Ripples Beach Resort",''];
     boxes.forEach(function(b){
       var t=b.parentNode.textContent.replace(/\s+/g,' ').trim();
       lines.push((b.checked?'[x] ':'[ ] ')+t);});
@@ -119,7 +119,7 @@ b{font-weight:600}
   document.getElementById('send').onclick=function(){
     var btn=this;btn.disabled=true;btn.textContent='Sending...';
     fetch('https://formsubmit.co/ajax/gino.c138@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-      body:JSON.stringify({_subject:"Checklist - Bistro Le Chat Bleu",summary:summary(),email:document.getElementById('remail').value,_captcha:'false'})})
+      body:JSON.stringify({_subject:"Checklist - Happy Ripples Beach Resort",summary:summary(),email:document.getElementById('remail').value,_captcha:'false'})})
     .then(function(res){var d=document.getElementById('done');d.style.display='block';
       if(res.ok){d.textContent='Sent - thank you! We will reply within a day.';btn.textContent='Sent';}
       else{throw 0}})
