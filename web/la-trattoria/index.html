@@ -205,6 +205,11 @@ blockquote cite{display:block;font-style:normal;font-size:13px;color:var(--dim);
 .fi a,.fi p{font-size:16.5px;line-height:1.55}
 .hr2{display:flex;justify-content:space-between;gap:16px;padding:7px 0;border-bottom:1px solid color-mix(in srgb,var(--slabInk) 14%,transparent);font-size:14.5px;max-width:380px}
 .hr2:last-child{border-bottom:none}
+.plinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+.plinks a{display:inline-flex;align-items:baseline;gap:7px;border:1px solid color-mix(in srgb,var(--slabInk) 22%,transparent);
+ border-radius:999px;padding:7px 15px;font-size:14.5px;transition:border-color .2s,background .2s}
+.plinks a:hover{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.plinks i{font-style:normal;font-size:12px;opacity:.6}
 .hr2 b{font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:12.5px;opacity:.7}
 
 footer{background:var(--slabBg);color:color-mix(in srgb,var(--slabInk) 55%,transparent);border-top:1px solid color-mix(in srgb,var(--slabInk) 14%,transparent);font-size:12.5px;padding:24px 0 90px}
@@ -367,6 +372,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;o
         <div class="rv"><span>Order online</span><a href="https://www.toasttab.com/local/order/la-trattoria-a-classic-italian-kitchen/r-dce0b383-c05a-436a-90bd-467049d1c818?diningOption=takeout" target="_blank" rel="noreferrer">Order online &rarr;</a></div>
         <div class="rv"><span>Reservations</span><a href="https://goo.gl/forms/bWIlP72MxNa7iCqB3" target="_blank" rel="noreferrer">Reservations &rarr;</a></div>
         <div class="rv"><span>Gift cards</span><a href="https://www.toasttab.com/la-trattoria-a-classic-italian-kitchen/giftcards" target="_blank" rel="noreferrer">Gift cards &rarr;</a></div>
+        <div class="rv"><span>Find us online</span><div class="plinks"><a href="https://www.google.com/maps/search/?api=1&amp;query=La+Trattoria+Classic+Italian+Carrollton+GA" target="_blank" rel="noreferrer">Google Maps<i>reviews &amp; directions</i></a></div></div>
         <div class="rv"><span>Rating</span><p>4.3 &middot; 637 on Facebook</p></div>
       </div>
     </div>
