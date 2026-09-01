@@ -43,7 +43,19 @@ nav{display:flex;align-items:center;justify-content:space-between;gap:14px;paddi
 .brand.has-logo i{margin-top:4px}
 .brand b{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:-.01em;text-transform:none}
 .brand i{display:block;font-style:normal;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);margin-top:2px;font-family:var(--body);font-weight:600}
-.btn{font-weight:650;font-size:14.5px;padding:11px 20px;border-radius:4px;white-space:nowrap;transition:transform .14s,background .2s,color .2s;display:inline-block}
+.navlinks{display:none;gap:26px}
+@media(min-width:980px){.navlinks{display:flex}}
+.navlinks a{font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.82;transition:opacity .15s,color .15s}
+.navlinks a:hover{opacity:1;color:var(--accent)}
+.navacts{display:flex;gap:9px;align-items:center}
+@media(max-width:979px){.navacts .btn-o{display:none}}
+.secnav{display:flex;gap:22px;overflow-x:auto;padding:9px 18px 11px;border-top:1px solid var(--rule);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.secnav::-webkit-scrollbar{display:none}
+.secnav a{font-weight:650;font-size:12px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;opacity:.85}
+.secnav a:active{color:var(--accent)}
+@media(min-width:980px){.secnav{display:none}}
+.btn{font-weight:650;font-size:14.5px;padding:11px 20px;border-radius:4px;white-space:nowrap;transition:transform .14s,background .2s,color .2s,box-shadow .2s;display:inline-block}
+.btn:hover{transform:translateY(-1px)}
 .btn:active{transform:scale(.97)}
 .btn-a{background:var(--accent);color:#fff}
 .btn-a:hover{background:var(--accent2)}
@@ -93,7 +105,14 @@ blockquote p{font-family:var(--display);font-size:clamp(18px,2.2vw,23px);line-he
 blockquote cite{display:block;font-style:normal;font-size:13px;color:var(--dim);margin-top:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
 
 .fig{position:relative;overflow:hidden;border-radius:4px;margin:0}
-.fig img{width:100%;height:100%;object-fit:cover}
+.fig img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+@media(hover:hover){
+  .dishes .fig:hover img,.gal .fig:hover img{transform:scale(1.05)}
+  .dish.txt{transition:transform .2s var(--ease),box-shadow .2s}
+  .dish.txt:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.08)}
+  .oi{transition:border-color .2s}
+  .oi:hover{border-color:#34d399}
+}
 .fig figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 18px 12px;color:#fff;font-size:13.5px;font-weight:600;letter-spacing:.02em;background:linear-gradient(180deg,transparent,rgba(0,0,0,.68));text-shadow:0 1px 6px rgba(0,0,0,.5)}
 .fig figcaption .crd{display:block;font-style:normal;font-weight:500;font-size:10px;letter-spacing:.05em;opacity:.72;margin-top:3px;text-transform:uppercase}
 .sfig{aspect-ratio:4/3.4}
@@ -174,6 +193,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
 /* hidden states live in CSS, only under .js — GSAP's single job is to reveal (Veracod rule #1) */
 .js .rv,.js .hr-in{opacity:0;visibility:hidden}
+.js .offer .oh{opacity:0}
 .js .fig figcaption{transform:translateY(110%)}
 .js .hero h1{opacity:0}
 
@@ -190,8 +210,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 <header>
   <nav>
     <a class="brand" href="#top"><span><b>Berc's Steakhouse</b><i>Peterborough, Ontario</i></span></a>
-    
+    <div class="navlinks"><a href="#find">Find us</a></div>
+    <div class="navacts">
+      
+      
+      
+    </div>
   </nav>
+  <nav class="secnav"><a href="#find">Find us</a></nav>
 </header>
 
 <main id="top">
@@ -220,6 +246,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
         
         
         
+        
+        
       </div>
     </div>
   </section>
@@ -243,7 +271,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 <script>
 window.addEventListener('load',function(){
   if(!window.gsap||!document.documentElement.classList.contains('js'))return;
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger,SplitText);
   var alive=function(){window.__alive=true};
 
   /* hero headline: line-mask rise. padding-bottom keeps descenders (g y p j) out of the clip. */
@@ -257,7 +285,33 @@ window.addEventListener('load',function(){
   }catch(e){gsap.fromTo('.hero h1',{opacity:0,y:26},{opacity:1,y:0,duration:.9,ease:'power3.out',onStart:alive})}
   gsap.fromTo('.hero .hr-in',{autoAlpha:0,y:22},{autoAlpha:1,y:0,duration:.8,ease:'power3.out',stagger:.1,delay:.45,onStart:alive});
   var hp=document.querySelector('.hero .hphoto img');
-  if(hp)gsap.fromTo(hp,{scale:1.12},{scale:1,duration:2.4,ease:'power2.out',onStart:alive});
+  if(hp){gsap.fromTo(hp,{scale:1.14},{scale:1.02,duration:2.2,ease:'power2.out',onStart:alive,
+    onComplete:function(){gsap.to(hp,{scale:1.09,duration:11,ease:'sine.inOut',yoyo:true,repeat:-1})}});}
+
+  /* stat numbers count up as the band scrolls in */
+  document.querySelectorAll('.mk b').forEach(function(el){
+    var m=el.textContent.match(/^([#$]?)(\d+(?:\.\d)?)(.*)$/);
+    if(!m)return;
+    var pre=m[1],target=parseFloat(m[2]),suf=m[3],dec=m[2].indexOf('.')>-1?1:0;
+    var obj={v:0};
+    gsap.to(obj,{v:target,duration:1.4,ease:'power2.out',onStart:alive,
+      onUpdate:function(){el.textContent=pre+obj.v.toFixed(dec)+suf},
+      scrollTrigger:{trigger:el,start:'top 92%'}});
+  });
+
+  /* story figure drifts against the scroll */
+  var sf=document.querySelector('.sfig img');
+  if(sf)gsap.fromTo(sf,{yPercent:-5},{yPercent:5,ease:'none',
+    scrollTrigger:{trigger:'.sfig',start:'top bottom',end:'bottom top',scrub:true}});
+
+  /* the studio note types itself in */
+  var oh=document.querySelector('.offer .oh');
+  if(oh){try{
+    var os=SplitText.create(oh,{type:'chars'});
+    gsap.set(oh,{opacity:1});
+    gsap.fromTo(os.chars,{opacity:0},{opacity:1,duration:.02,stagger:.045,ease:'none',onStart:alive,
+      scrollTrigger:{trigger:oh,start:'top 85%'}});
+  }catch(e){}}
 
   /* everything below the fold reveals as it enters */
   gsap.utils.toArray('.rv').forEach(function(el){
