@@ -135,6 +135,10 @@ blockquote cite{display:block;font-style:normal;font-size:13px;color:var(--dim);
 .dish figcaption span{display:block;font-size:12.5px;opacity:.85;font-weight:500;margin-top:2px}
 .dish.txt{aspect-ratio:auto;border:1px solid var(--rule);border-radius:4px;padding:20px 22px;background:var(--bg)}
 .dish.txt b{font-family:var(--display);font-size:19px}
+/* Dotted leader row — decoded from Le Petit Bleu. The only menu structure that survives
+   40 dishes: category chips + a price list with no image per row + leaders. */
+.mrow{display:flex;align-items:baseline;gap:10px;margin:0}
+.mrow .lead{flex:1;border-bottom:2px dotted currentColor;opacity:.28;transform:translateY(-.25em)}
 .dish.txt span{display:block;color:var(--dim);font-size:13.5px;margin-top:6px}
 
 /* Phones get a native scroll-snap strip instead of a grid — this is what 12 of 23 award
@@ -166,6 +170,11 @@ blockquote cite{display:block;font-style:normal;font-size:13px;color:var(--dim);
 .hr2 b{font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:12.5px;opacity:.7}
 
 footer{background:var(--slabBg);color:color-mix(in srgb,var(--slabInk) 55%,transparent);border-top:1px solid color-mix(in srgb,var(--slabInk) 14%,transparent);font-size:12.5px;padding:24px 0 90px}
+/* Oversized wordmark bleeding out of the footer — also quietly sidesteps a client's
+   bad Word-made logo by making type the identity. */
+.fmark{font-family:var(--display);font-size:clamp(3rem,13vw,11rem);line-height:.85;
+ letter-spacing:-.04em;text-transform:none;color:color-mix(in srgb,var(--slabInk) 13%,transparent);
+ white-space:nowrap;overflow:hidden;margin:8px 0 22px;user-select:none}
 @media(min-width:720px){footer{padding-bottom:24px}}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
@@ -186,8 +195,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .octa p{font-size:16.5px;color:#e8ecef;line-height:1.65}
 .octa .osmall{color:#8b969f;font-size:13px;margin-top:10px}
 .offer a{color:#34d399}
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--slabBg) 92%,transparent);backdrop-filter:blur(10px);border-top:1px solid color-mix(in srgb,var(--slabInk) 16%,transparent)}
-.callbar a{flex:1;text-align:center}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;
+ padding:0 0 env(safe-area-inset-bottom);background:color-mix(in srgb,var(--slabBg) 95%,transparent);
+ backdrop-filter:blur(12px);border-top:1px solid color-mix(in srgb,var(--slabInk) 16%,transparent)}
+.callbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
+ padding:9px 4px 10px;color:var(--slabInk);min-height:52px;justify-content:center}
+.callbar a:first-child{color:var(--accent2)}
+.callbar a+a{border-left:1px solid color-mix(in srgb,var(--slabInk) 12%,transparent)}
+.callbar svg{width:19px;height:19px;fill:currentColor}
+.callbar b{font-size:11px;font-weight:650;letter-spacing:.06em;text-transform:uppercase}
+.callbar a:active{background:color-mix(in srgb,var(--slabInk) 10%,transparent)}
 @media(min-width:720px){.callbar{display:none}}
 /* On phones the sticky bottom call bar already carries the number, so the nav button is
    redundant — and with it gone the brand name has the whole row and stops wrapping into it. */
@@ -293,7 +310,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;o
       <p class="kick rv">From the menu</p>
       <h2 class="sp">The classics.</h2>
       <p class="lead rv">Steak and seafood, done the old way.</p>
-      <div class="dishes"><div class="dish txt rv"><b>Chateaubriand for two</b><span>Carved and flamed tableside — $155</span></div><div class="dish txt rv"><b>Steak Oscar</b><span>Crab, asparagus, bearnaise — $85</span></div><div class="dish txt rv"><b>Porterhouse for two</b><span>$149</span></div><div class="dish txt rv"><b>Slow-roasted prime rib</b><span>The house signature</span></div><div class="dish txt rv"><b>Fresh seafood</b></div><div class="dish txt rv"><b>Thursday date night</b><span>Three courses for two — $109</span></div></div>
+      <div class="dishes"><div class="dish txt rv"><p class="mrow"><b>Chateaubriand for two</b><i class="lead"></i></p><span>Carved and flamed tableside — $155</span></div><div class="dish txt rv"><p class="mrow"><b>Steak Oscar</b><i class="lead"></i></p><span>Crab, asparagus, bearnaise — $85</span></div><div class="dish txt rv"><p class="mrow"><b>Porterhouse for two</b><i class="lead"></i></p><span>$149</span></div><div class="dish txt rv"><p class="mrow"><b>Slow-roasted prime rib</b><i class="lead"></i></p><span>The house signature</span></div><div class="dish txt rv"><p class="mrow"><b>Fresh seafood</b><i class="lead"></i></p></div><div class="dish txt rv"><p class="mrow"><b>Thursday date night</b><i class="lead"></i></p><span>Three courses for two — $109</span></div></div>
     </div>
   </section>
 
@@ -338,13 +355,14 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;o
 </main>
 
 <footer>
+  <div class="wrap"><div class="fmark" aria-hidden="true">Town &amp; Country Steak House</div></div>
   <div class="wrap">
     <p>Town &amp; Country Steak House &middot; Dunlop St W, Barrie, Ontario</p>
     <p>Concept page by <b>Veracod</b> &mdash; not affiliated with the restaurant.</p>
   </div>
 </footer>
 
-
+<div class="callbar"><a href="https://www.google.com/maps/search/?api=1&query=Town%20%26%20Country%20Steak%20House%20Dunlop%20St%20W%2C%20Barrie%2C%20Ontario" target="_blank" rel="noreferrer"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a5 5 0 0 0-5 5c0 3.6 5 8 5 8s5-4.4 5-8a5 5 0 0 0-5-5Zm0 6.8a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6Z"/></svg><b>Directions</b></a><a href="#menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3h10v1.6H3V3Zm0 4.2h10v1.6H3V7.2ZM3 11.4h6.4V13H3v-1.6Z"/></svg><b>Menu</b></a></div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
@@ -390,10 +408,13 @@ window.addEventListener('load',function(){
       scrollTrigger:{trigger:oh,start:'top 85%'}});
   }catch(e){}}
 
-  /* everything below the fold reveals as it enters */
-  gsap.utils.toArray('.rv').forEach(function(el){
-    gsap.fromTo(el,{autoAlpha:0,y:26},{autoAlpha:1,y:0,duration:.85,ease:'power3.out',onStart:alive,
-      scrollTrigger:{trigger:el,start:'top 88%'}});});
+  /* Reveals go through ScrollTrigger.batch with once:true. Batching coalesces the callbacks
+     for everything entering together (one stagger instead of N triggers), and once:true kills
+     each trigger after it fires — the difference that matters on cheap Android. */
+  ScrollTrigger.batch('.rv',{start:'top 88%',once:true,
+    onEnter:function(batch){gsap.to(batch,{autoAlpha:1,y:0,duration:.8,stagger:.07,
+      ease:'power3.out',overwrite:true,onStart:alive});}});
+  gsap.set('.rv',{y:26});
 
   /* Caption bars are cheap (one transform, fires once) so they run everywhere. */
   gsap.utils.toArray('.fig').forEach(function(f){
