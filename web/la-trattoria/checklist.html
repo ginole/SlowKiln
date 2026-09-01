@@ -11,8 +11,18 @@ h1{font-size:clamp(26px,5vw,34px);letter-spacing:-.02em;margin:10px 0 6px}
 .sub{color:#5b6570;margin:0 0 30px}
 h2{font-family:'IBM Plex Mono',monospace;font-size:15px;margin:34px 0 10px;color:#0a8754}
 ul{margin:0;padding-left:0;list-style:none}
-li{padding:9px 0 9px 34px;position:relative;border-bottom:1px solid #e6e9ec}
-li::before{content:"";position:absolute;left:0;top:12px;width:18px;height:18px;border:2px solid #b9c2ca;border-radius:4px}
+li{border-bottom:1px solid #e6e9ec}
+li label{display:block;padding:9px 0 9px 34px;position:relative;cursor:pointer}
+li input[type=checkbox]{position:absolute;left:2px;top:13px;width:18px;height:18px;accent-color:#0a8754;cursor:pointer}
+textarea,input[type=email]{width:100%;box-sizing:border-box;font:inherit;padding:11px 13px;border:1px solid #cdd4da;border-radius:6px;background:#fff}
+textarea{min-height:110px;resize:vertical}
+.field{margin:14px 0}
+.field b{display:block;font-size:13.5px;margin-bottom:5px}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+button{font:inherit;font-weight:600;padding:12px 22px;border-radius:6px;border:0;cursor:pointer}
+#send{background:#0a8754;color:#fff}
+#copy{background:#fff;border:1.5px solid #191c1f}
+#done{display:none;background:#e8f7ef;border:1px solid #0a8754;border-radius:6px;padding:14px 18px;margin-top:14px;color:#0a5c39}
 .note{background:#fff;border:1px solid #e2e6e9;border-left:3px solid #0a8754;border-radius:6px;padding:14px 18px;margin:26px 0;font-size:14.5px;color:#3d4650}
 .opt{margin:18px 0 4px;font-size:15px}
 .small{font-size:13px;color:#7a838c;margin-top:34px;border-top:1px solid #e2e6e9;padding-top:16px}
@@ -24,18 +34,18 @@ b{font-weight:600}
 
 <h2>01 &mdash; Photos (a phone is fine)</h2>
 <ul>
-<li><b>Food:</b> 6&ndash;10 plates &mdash; ideally the ones on the page: Chicken Parmesan, Stuffed meatball, Caprese chicken, Dessert trio, Local craft flights, Salmon salad. Plate fills the frame, daylight, no flash.</li>
-<li><b>The room:</b> 2&ndash;3 shots &mdash; one from the front door, one of where people sit.</li>
-<li><b>Outside:</b> 1&ndash;2 of the front and your sign.</li>
-<li><b>People (optional but powerful):</b> you or your team at work &mdash; the story section is built for it.</li>
-<li><b>Logo</b>, if you have a file of it &mdash; any format.</li>
+<li><label><input type="checkbox"> <b>Food:</b> 6&ndash;10 plates &mdash; ideally the ones on the page: Chicken Parmesan, Stuffed meatball, Caprese chicken, Dessert trio, Local craft flights, Salmon salad. Plate fills the frame, daylight, no flash.</label></li>
+<li><label><input type="checkbox"> <b>The room:</b> 2&ndash;3 shots &mdash; one from the front door, one of where people sit.</label></li>
+<li><label><input type="checkbox"> <b>Outside:</b> 1&ndash;2 of the front and your sign.</label></li>
+<li><label><input type="checkbox"> <b>People (optional but powerful):</b> you or your team at work &mdash; the story section is built for it.</label></li>
+<li><label><input type="checkbox"> <b>Logo</b>, if you have a file of it &mdash; any format.</label></li>
 </ul>
 <div class="note">Every photo on the final site will be yours or approved by you.</div>
 
 <h2>02 &mdash; One email confirming the facts</h2>
 <ul>
-<li>Hours exactly as they are on your door (we currently show: Mon - Sat 11:00 a.m. - 9:00 p.m.; Sunday Closed)</li><li>Phone (678) 890-1030 and address 120 Alabama St, Carrollton, GA</li><li>Names and story facts on the page — correct anything we got wrong</li>
-<li>The menu shortlist &mdash; keep, swap or reword any of it. Prices only if you want them shown.</li>
+<li><label><input type="checkbox"> Hours exactly as they are on your door (we currently show: Mon - Sat 11:00 a.m. - 9:00 p.m.; Sunday Closed)</label></li><li><label><input type="checkbox"> Phone (678) 890-1030 and address 120 Alabama St, Carrollton, GA</label></li><li><label><input type="checkbox"> Names and story facts on the page — correct anything we got wrong</label></li>
+<li><label><input type="checkbox"> The menu shortlist &mdash; keep, swap or reword any of it. Prices only if you want them shown.</label></li>
 </ul>
 
 <h2>03 &mdash; Your domain (registered in YOUR name)</h2>
@@ -72,5 +82,50 @@ b{font-weight:600}
 
 <div class="note"><b>How revisions work:</b> send all your corrections in one list within 5 business days of seeing the draft &mdash; that's your included revision round. Ten changes in one email = one round. We fix, you approve the final version, the remaining $450 is settled &mdash; and the site goes live on your domain the same day.</div>
 
+<h2>Send it to us</h2>
+<div class="field"><b>Anything to correct or add? (hours, names, menu items&hellip;)</b><textarea id="notes" placeholder="Type corrections here &mdash; or leave blank if it all looks right."></textarea></div>
+<div class="field"><b>Your email (so we can reply)</b><input type="email" id="remail" placeholder="you@example.com"></div>
+<div class="btns"><button id="send">Send my answers</button><button id="copy">Copy my answers instead</button></div>
+<div id="done"></div>
 <p class="small">Veracod &mdash; this checklist accompanies the La Trattoria Classic Italian concept page. Questions: just reply to the email.</p>
+<script>
+(function(){
+  var KEY='vck-la-trattoria';
+  var boxes=[].slice.call(document.querySelectorAll('li input[type=checkbox]'));
+  try{var saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+    boxes.forEach(function(b,i){ if(saved.c&&saved.c[i])b.checked=true; });
+    if(saved.n)document.getElementById('notes').value=saved.n;
+    if(saved.e)document.getElementById('remail').value=saved.e;
+  }catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify({
+    c:boxes.map(function(b){return b.checked?1:0}),
+    n:document.getElementById('notes').value,
+    e:document.getElementById('remail').value}));}catch(e){}}
+  document.addEventListener('change',save);document.addEventListener('input',save);
+  function summary(){
+    var lines=["Checklist - La Trattoria Classic Italian",''];
+    boxes.forEach(function(b){
+      var t=b.parentNode.textContent.replace(/\s+/g,' ').trim();
+      lines.push((b.checked?'[x] ':'[ ] ')+t);});
+    lines.push('','Corrections/notes:',document.getElementById('notes').value||'(none)');
+    lines.push('','Reply to: '+(document.getElementById('remail').value||'(not given)'));
+    return lines.join(String.fromCharCode(10));
+  }
+  document.getElementById('copy').onclick=function(){
+    var ta=document.createElement('textarea');ta.value=summary();document.body.appendChild(ta);
+    ta.select();document.execCommand('copy');document.body.removeChild(ta);
+    var d=document.getElementById('done');d.style.display='block';
+    d.textContent='Copied - paste it into your email reply to us.';};
+  document.getElementById('send').onclick=function(){
+    var btn=this;btn.disabled=true;btn.textContent='Sending...';
+    fetch('https://formsubmit.co/ajax/wyndralore@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify({_subject:"Checklist - La Trattoria Classic Italian",summary:summary(),email:document.getElementById('remail').value,_captcha:'false'})})
+    .then(function(res){var d=document.getElementById('done');d.style.display='block';
+      if(res.ok){d.textContent='Sent - thank you! We will reply within a day.';btn.textContent='Sent';}
+      else{throw 0}})
+    .catch(function(){var d=document.getElementById('done');d.style.display='block';
+      d.textContent='Could not send from this browser - tap "Copy my answers instead" and paste into an email to us.';
+      btn.disabled=false;btn.textContent='Send my answers';});};
+})();
+</script>
 </div></body></html>
