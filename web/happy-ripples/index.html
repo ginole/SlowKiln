@@ -566,7 +566,7 @@ window.addEventListener('load',function(){
     e.preventDefault(); var b=f.querySelector('button'); b.disabled=true; b.textContent='Sending...';
     var d={}; new FormData(f).forEach(function(v,k){d[k]=v});
     var lines=Object.keys(d).map(function(k){return k+': '+d[k]});
-    fetch('https://formsubmit.co/ajax/gino.c138@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+    fetch('https://formsubmit.co/ajax/hello@veracod.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
       body:JSON.stringify({_subject:"Booking enquiry - Happy Ripples Beach Resort",enquiry:lines.join(String.fromCharCode(10)),email:d.contact||'',_captcha:'false'})})
     .then(function(res){ if(!res.ok) throw 0;
       msg.textContent='Sent. We will reply today with the rate and how to hold the date.';
