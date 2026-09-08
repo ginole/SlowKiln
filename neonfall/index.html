@@ -90,7 +90,65 @@ body {
 	z-index: 1;
 }
 		</style>
-		
+		<script>
+// Kill the sound the moment the page stops being visible -- screen lock included.
+//
+//   This CANNOT be done from GDScript. When the browser hides the tab it stops requestAnimationFrame,
+// so the Godot main loop stops running and any handler written in GDScript never executes. The
+// player locks their phone and the music keeps playing. (Reported 2026-09-09; the earlier fix only
+// covered tab switches, where the engine still got one frame to react.)
+//
+// So the mute lives here, in the page's own event loop, which keeps running while rAF does not.
+// AudioContext is wrapped BEFORE the engine loads, so every context Godot creates is collected --
+// no dependency on Godot internals or on which audio driver it picked.
+(function () {
+	var contexts = [];
+	['AudioContext', 'webkitAudioContext'].forEach(function (name) {
+		var Original = window[name];
+		if (!Original) { return; }
+		function Wrapped() {
+			var ctx = new (Function.prototype.bind.apply(Original, [null].concat([].slice.call(arguments))))();
+			contexts.push(ctx);
+			return ctx;
+		}
+		Wrapped.prototype = Original.prototype;
+		window[name] = Wrapped;
+	});
+
+	var silencedByUs = false;
+	function silence() {
+		silencedByUs = true;
+		contexts.forEach(function (c) { try { c.suspend(); } catch (e) {} });
+	}
+	function restore() {
+		if (!silencedByUs) { return; }
+		silencedByUs = false;
+		// only if the page is really back: pageshow can fire while still hidden
+		if (document.hidden) { return; }
+		contexts.forEach(function (c) { try { c.resume(); } catch (e) {} });
+	}
+
+	document.addEventListener('visibilitychange', function () {
+		if (document.hidden) { silence(); } else { restore(); }
+	});
+	window.addEventListener('blur', silence);
+	window.addEventListener('pagehide', silence);
+	window.addEventListener('freeze', silence);      // Page Lifecycle: Android may freeze before hiding
+	window.addEventListener('focus', restore);
+	window.addEventListener('pageshow', restore);
+	window.addEventListener('resume', restore);
+
+	// inspectable on purpose: without a handle there is no way to prove from outside that the
+	// wrapper installed and that the contexts are actually being collected
+	window.__nfAudio = {
+		count: function () { return contexts.length; },
+		states: function () { return contexts.map(function (c) { return c.state; }); },
+		silence: silence,
+		restore: restore
+	};
+})();
+</script>
+
 	</head>
 	<body>
 		<canvas id="canvas">
@@ -109,7 +167,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":1694016,"index.wasm":18768081},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":1695728,"index.wasm":18768081},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
